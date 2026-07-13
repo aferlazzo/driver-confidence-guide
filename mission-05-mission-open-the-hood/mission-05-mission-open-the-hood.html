@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mission 05: Mission Open The Hood</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #ececec;
+            color: #1f1f1f;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #cfcfcf;
+            padding: 18px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(1.25rem, 3vw, 2rem);
+        }
+
+        main {
+            width: min(100%, 1050px);
+            margin: 0 auto;
+            padding: 20px 12px 40px;
+        }
+
+        .mission-pages {
+            display: grid;
+            gap: 22px;
+        }
+
+        .mission-pages img {
+            display: block;
+            width: 100%;
+            height: auto;
+            background: white;
+            border: 1px solid #bdbdbd;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            color: #555;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mission 05: Mission Open The Hood</h1>
+    </header>
+
+    <main>
+        <section class="mission-pages" aria-label="Mission pages">
+        <img src="images/page-01.png" alt="Mission 05, page 1" loading="eager">
+        <img src="images/page-02.png" alt="Mission 05, page 2" loading="lazy">
+        <img src="images/page-03.png" alt="Mission 05, page 3" loading="lazy">
+        <img src="images/page-04.png" alt="Mission 05, page 4" loading="lazy">
+        </section>
+    </main>
+
+    <footer>
+        Driver Confidence Guide
+    </footer>
+</body>
+</html>
