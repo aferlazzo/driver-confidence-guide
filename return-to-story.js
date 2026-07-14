@@ -1,9 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
   const params = new URLSearchParams(window.location.search);
-  const returnPath = params.get('return');
-  if (!returnPath) return;
+  let returnUrl = params.get('return');
 
-  const destination = new URL(returnPath, window.location.origin + '/driver-confidence-guide/');
+  if (!returnUrl && document.referrer) {
+    try {
+      const referrer = new URL(document.referrer);
+      if (referrer.origin === window.location.origin && referrer.pathname.startsWith('/driver-confidence-guide/adventures/')) {
+        returnUrl = referrer.pathname + referrer.search + referrer.hash;
+      }
+    } catch (error) {
+      returnUrl = null;
+    }
+  }
+
+  if (!returnUrl) return;
+
+  const destination = new URL(returnUrl, window.location.origin + '/driver-confidence-guide/');
   if (destination.origin !== window.location.origin || !destination.pathname.startsWith('/driver-confidence-guide/adventures/')) return;
 
   const section = document.querySelector('.bottom-navigation');
@@ -15,6 +27,4 @@ document.addEventListener('DOMContentLoaded', function () {
   link.href = destination.pathname + destination.search + destination.hash;
   link.textContent = '← Return to Story';
   buttons.prepend(link);
-
-  section.scrollIntoView({ block: 'nearest' });
 });
