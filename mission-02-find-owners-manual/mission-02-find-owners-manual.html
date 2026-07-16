@@ -1,32 +1,98 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mission 02: Find Owners Manual</title><link rel="stylesheet" href="../style.css">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WMXEP7LMQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-9WMXEP7LMQ');
-</script>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Find Your Owner's Manual | Adventure Learning</title>
+  <link rel="stylesheet" href="../style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WMXEP7LMQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9WMXEP7LMQ');
+  </script>
 </head>
 <body>
 <nav class="top-nav">
   <a href="../index.html">Home</a>
-  <a href="../adventures.html">Choose an Adventure</a>
-  <a href="../mission-library.html">Mission Library</a>
-  <a href="../meet-tony.html">Meet Tony</a>
+  <a href="../adventures.html">Episodes</a>
+  <a href="../mission-library.html">Skills</a>
+  <a href="../meet-tony.html">Characters</a>
   <a href="https://forms.gle/3jXuUbputezCjwA57" target="_blank" rel="noopener noreferrer">Feedback</a>
 </nav>
-<header class="page-header"><p class="eyebrow">Mission 02</p><h1>Find Owners Manual</h1></header>
-<main><section class="mission-pages"><img src="images/page-01.png" alt="Mission 02, page 1" loading="eager">
-<img src="images/page-02.png" alt="Mission 02, page 2" loading="lazy">
-<img src="images/page-03.png" alt="Mission 02, page 3" loading="lazy"></section>
-<section class="bottom-navigation"><h2>Where would you like to go next?</h2>
-<div class="navigation-buttons"><a class="nav-button" href="../mission-01-nobody-ever-taught-me-this/mission-01-nobody-ever-taught-me-this.html">← Previous Mission</a>
-<a class="nav-button primary" href="../mission-library.html">Mission Library</a>
-<a class="nav-button" href="../mission-03-scheduled-maintenance/mission-03-scheduled-maintenance.html">Next Mission →</a>
-<a class="nav-button adventure" href="../adventures.html">Choose an Adventure</a>
-<a class="nav-button feedback" href="https://forms.gle/3jXuUbputezCjwA57" target="_blank" rel="noopener noreferrer">Give Feedback</a></div></section></main>
-<footer>Driver Confidence Guide</footer><script src="../return-to-story.js"></script></body></html>
+<header class="page-header skill-hero">
+  <p class="eyebrow">Quick Guide</p>
+  <h1>Find Your Owner's Manual</h1>
+  <p>Every car is a little different. The owner's manual explains controls, warning lights, fuel requirements, maintenance schedules, and features that may be unfamiliar.</p>
+</header>
+<main class="skill-guide">
+  <section class="skill-section situation-card">
+    <h2>Alex's Situation</h2>
+    <p>Alex has borrowed his mom's car and sees a dashboard button he does not recognize. Tyler suggests pressing it. Alex decides to find the owner's manual first.</p>
+  </section>
+
+  <section class="skill-section">
+    <h2>How to Find It</h2>
+    <div class="skill-card-grid">
+      <article class="skill-card">
+        <div class="skill-icon" aria-hidden="true">📁</div>
+        <h3>Check the glove compartment</h3>
+        <p>Many cars still include a printed manual, often inside a zippered pouch with warranty and maintenance booklets.</p>
+      </article>
+      <article class="skill-card">
+        <div class="skill-icon" aria-hidden="true">🌐</div>
+        <h3>Visit the manufacturer's website</h3>
+        <p>Search using the car's year, make, and model. Most manufacturers provide the official manual as a free PDF.</p>
+      </article>
+      <article class="skill-card">
+        <div class="skill-icon" aria-hidden="true">🔢</div>
+        <h3>Use the VIN</h3>
+        <p>The Vehicle Identification Number identifies the exact car. Look through the lower driver's-side windshield or on the driver's door jamb.</p>
+      </article>
+      <article class="skill-card">
+        <div class="skill-icon" aria-hidden="true">📱</div>
+        <h3>Check the dashboard screen</h3>
+        <p>Many newer vehicles include a searchable digital owner's manual in the infotainment system.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="skill-section challenge-card">
+    <h2>Try It Yourself</h2>
+    <ul class="challenge-list">
+      <li><label><input type="checkbox"> Open the glove compartment and look for the manual.</label></li>
+      <li><label><input type="checkbox"> Find the VIN on the windshield or door jamb.</label></li>
+      <li><label><input type="checkbox"> Save the official PDF manual on your phone.</label></li>
+    </ul>
+  </section>
+
+  <section class="skill-section tip-card">
+    <h2>Quick Tip</h2>
+    <p>Download the manual while you have Wi-Fi. Then it will still be available when you are away from home.</p>
+  </section>
+
+  <section class="skill-section tyler-card">
+    <h2>Tyler Says...</h2>
+    <blockquote>“I thought every car had the same buttons.”</blockquote>
+  </section>
+
+  <section class="skill-section centered">
+    <h2>What Alex Learned</h2>
+    <p>Every car really is different. Two minutes spent locating the manual can prevent a lot of guessing.</p>
+    <div class="navigation-buttons">
+      <a class="nav-button primary" id="continue-episode" href="../adventures/borrowing-moms-car/scene-2.html">▶ Continue Episode</a>
+      <a class="nav-button" href="../mission-library.html">Browse More Skills</a>
+    </div>
+  </section>
+</main>
+<footer>© 2026 Tony Ferlazzo · Adventure Learning</footer>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const returnUrl = params.get('return');
+  if (returnUrl && !returnUrl.startsWith('http') && !returnUrl.startsWith('//')) {
+    document.getElementById('continue-episode').href = '../' + returnUrl.replace(/^\.\.\//, '');
+  }
+</script>
+</body>
+</html>
