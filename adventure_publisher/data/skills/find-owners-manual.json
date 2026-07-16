@@ -1,0 +1,39 @@
+{
+  "slug": "find-owners-manual",
+  "title": "Find Your Owner's Manual",
+  "eyebrow": "Quick Guide",
+  "situation": "Alex has borrowed his mom's car and sees a dashboard button he does not recognize. Tyler suggests pressing it. Alex decides to find the owner's manual first.",
+  "intro": "Every car is a little different. The owner's manual explains controls, warning lights, fuel requirements, maintenance schedules, and features that may be unfamiliar.",
+  "steps": [
+    {
+      "icon": "📁",
+      "title": "Check the glove compartment",
+      "text": "Many cars still include a printed manual, often inside a zippered pouch with warranty and maintenance booklets."
+    },
+    {
+      "icon": "🌐",
+      "title": "Visit the manufacturer's website",
+      "text": "Search using the car's year, make, and model. Most manufacturers provide the official manual as a free PDF."
+    },
+    {
+      "icon": "🔢",
+      "title": "Use the VIN",
+      "text": "The Vehicle Identification Number identifies the exact car. Look through the lower driver's-side windshield or on the driver's door jamb."
+    },
+    {
+      "icon": "📱",
+      "title": "Check the dashboard screen",
+      "text": "Many newer vehicles include a searchable digital owner's manual in the infotainment system."
+    }
+  ],
+  "challenge": [
+    "Open the glove compartment and look for the manual.",
+    "Find the VIN on the windshield or door jamb.",
+    "Save the official PDF manual on your phone."
+  ],
+  "tip": "Download the PDF while you have Wi-Fi. Then it will be available even when you are away from home.",
+  "tyler_quote": "I thought every car had the same buttons.",
+  "lesson": "Every car really is different. Two minutes spent locating the manual can prevent a lot of guessing.",
+  "continue_url": "../../adventures/borrowing-moms-car/scene-2.html",
+  "library_url": "../mission-library.html"
+}
