@@ -25,6 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const link = document.createElement('a');
   link.className = 'nav-button primary return-to-story';
   link.href = destination.pathname + destination.search + destination.hash;
-  link.textContent = '← Return to Story';
+  link.textContent = '← Continue Episode';
   buttons.prepend(link);
 });
