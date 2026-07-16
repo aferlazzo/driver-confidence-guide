@@ -9,80 +9,118 @@
 <body>
   <nav class="top-nav" aria-label="Main navigation">
     <a href="index_v2.html">Home</a>
-    <a href="adventures.html">Episodes</a>
-    <a href="mission-library.html">Learn a Skill</a>
-    <a href="meet-tony.html">Meet Tony</a>
+    <a href="#episodes">Episodes</a>
+    <a href="#skills">Learn a Skill</a>
+    <a href="#cast">Meet the Cast</a>
     <a href="https://forms.gle/3jXuUbputezCjwA57" target="_blank" rel="noopener noreferrer">Feedback</a>
   </nav>
 
   <header class="v2-hero">
     <p class="series-label">An Adventure Learning Series</p>
-    <h1>Driver Confidence Guide <span>Interactive stories for safer, smarter driving</span></h1>
-    <p>Join Alex and friends. Make choices, solve real driving problems, learn practical skills—and laugh a little along the way.</p>
-    <a class="primary-action" href="adventures/borrowing-moms-car/index.html">🎬 Start Episode 1</a>
+    <h1>Driver Confidence Guide <span>Interactive stories. Practical driving skills.</span></h1>
+    <p>Join Alex and friends, make choices, solve real driving problems, and become a safer, smarter driver.</p>
+    <div class="hero-actions">
+      <a class="primary-action" href="adventures/borrowing-moms-car/index.html">🎬 Start Episode 1</a>
+      <a class="secondary-action" href="#episodes">See All Episodes</a>
+    </div>
+    <p class="hero-note">No grades. No lectures. Just stories, decisions, and useful skills.</p>
   </header>
 
   <main class="v2-main">
-    <section aria-labelledby="season-one-title">
+    <section id="episodes" aria-labelledby="season-one-title">
       <div class="section-heading">
         <p class="series-label">Season One</p>
-        <h2 id="season-one-title">Choose an Episode</h2>
-        <p>Pick an experience. The learning happens inside the story.</p>
+        <h2 id="season-one-title">What would you like to do today?</h2>
+        <p>Choose an episode. The learning happens inside the story.</p>
       </div>
 
       <div class="episode-grid">
-        <article class="episode-card">
+        <article class="episode-card available">
+          <div class="episode-poster poster-car" aria-hidden="true">🚗</div>
           <p class="episode-number">Episode 1</p>
-          <h3>🚗 Borrow Mom's Car</h3>
+          <h3>Borrow Mom's Car</h3>
           <p>Alex borrows an unfamiliar car and has to figure out the controls, owner’s manual, and phone connection before leaving.</p>
           <a class="episode-button" href="adventures/borrowing-moms-car/index.html">Play Episode</a>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card available">
+          <div class="episode-poster poster-zoo" aria-hidden="true">🦁</div>
           <p class="episode-number">Episode 2</p>
-          <h3>🦁 Go to the Zoo</h3>
+          <h3>Go to the Zoo</h3>
           <p>A simple trip with friends brings navigation, a low-fuel warning, and one badly aimed bird.</p>
           <a class="episode-button" href="adventures/zoo-day/index.html">Play Episode</a>
         </article>
 
-        <article class="episode-card">
+        <article class="episode-card available">
+          <div class="episode-poster poster-camp" aria-hidden="true">🏕️</div>
           <p class="episode-number">Episode 3</p>
-          <h3>🏕️ Go Camping</h3>
+          <h3>Go Camping</h3>
           <p>The group prepares the car, packs roadside supplies, and handles trouble on the way to the campground.</p>
           <a class="episode-button" href="adventures/go-camping/index.html">Play Episode</a>
+        </article>
+
+        <article class="episode-card coming-soon-card">
+          <div class="episode-poster" aria-hidden="true">🎬</div>
+          <p class="episode-number">Episode 4</p>
+          <h3>Movie Night</h3>
+          <p>A packed parking lot, a late showing, and Tyler’s foolproof plan for finding the car afterward.</p>
+          <span class="coming-badge">Coming Soon</span>
+        </article>
+
+        <article class="episode-card coming-soon-card">
+          <div class="episode-poster" aria-hidden="true">🏫</div>
+          <p class="episode-number">Episode 5</p>
+          <h3>First Day of College</h3>
+          <p>A new campus, a confusing parking garage, and several cars that look suspiciously identical.</p>
+          <span class="coming-badge">Coming Soon</span>
+        </article>
+
+        <article class="episode-card coming-soon-card">
+          <div class="episode-poster" aria-hidden="true">⛈️</div>
+          <p class="episode-number">Episode 6</p>
+          <h3>Arizona Monsoon</h3>
+          <p>The sky opens, visibility disappears, and the road suddenly demands everyone’s full attention.</p>
+          <span class="coming-badge">Coming Soon</span>
         </article>
       </div>
     </section>
 
-    <section class="support-grid">
-      <article class="support-card">
-        <h2>🧰 Learn a Skill</h2>
-        <p>Need help with something specific? Go straight to a short comic mission.</p>
-        <div class="skill-links">
-          <a href="mission-02-find-owners-manual/mission-02-find-owners-manual.html">Owner’s Manual</a>
-          <a href="mission-09-checking-air-pressure/mission-09-checking-air-pressure.html">Tire Pressure</a>
-          <a href="mission-11-pumping-gas/mission-11-pumping-gas.html">Pumping Gas</a>
-          <a href="mission-14-connect-android-auto/mission-14-connect-android-auto.html">Android Auto</a>
-        </div>
-        <a class="secondary-action" href="mission-library.html">Browse All Skills</a>
-      </article>
-
-      <article class="support-card">
-        <h2>👥 Meet the Cast</h2>
-        <p>Recurring characters make the lessons feel like an ongoing comic series.</p>
-        <div class="cast-list" aria-label="Main characters">
-          <div>Alex</div>
-          <div>Maya</div>
-          <div>Emma</div>
-          <div>Tyler</div>
-        </div>
-      </article>
+    <section id="cast" class="cast-section" aria-labelledby="cast-title">
+      <div class="section-heading">
+        <p class="series-label">The Regulars</p>
+        <h2 id="cast-title">Meet the Cast</h2>
+        <p>They make mistakes, solve problems, and keep the lessons from turning into lectures.</p>
+      </div>
+      <div class="cast-grid">
+        <article><div class="cast-avatar">A</div><h3>Alex</h3><p>The driver. Tries hard, learns quickly, and occasionally overthinks everything.</p></article>
+        <article><div class="cast-avatar">M</div><h3>Maya</h3><p>Calm, observant, and usually the first person to notice what really matters.</p></article>
+        <article><div class="cast-avatar">E</div><h3>Emma</h3><p>Practical, prepared, and unlikely to accept nonsense without comment.</p></article>
+        <article><div class="cast-avatar">T</div><h3>Tyler</h3><p>Confident, entertaining, and often spectacularly wrong.</p></article>
+      </div>
     </section>
 
-    <section class="coming-next">
-      <p class="series-label">Coming Next</p>
-      <h2>🎬 Movie Night</h2>
-      <p>A crowded parking lot, a late showing, and Tyler’s foolproof plan for finding the car afterward.</p>
+    <section id="skills" class="skills-section" aria-labelledby="skills-title">
+      <div class="section-heading">
+        <p class="series-label">Need an answer now?</p>
+        <h2 id="skills-title">Learn a Skill</h2>
+        <p>Skip straight to a short comic mission when you need help with something specific.</p>
+      </div>
+      <div class="skill-links">
+        <a href="mission-02-find-owners-manual/mission-02-find-owners-manual.html">Find the Owner’s Manual</a>
+        <a href="mission-04-tool-kit/mission-04-tool-kit.html">Build a Tool Kit</a>
+        <a href="mission-09-checking-air-pressure/mission-09-checking-air-pressure.html">Check Tire Pressure</a>
+        <a href="mission-11-pumping-gas/mission-11-pumping-gas.html">Pump Gas</a>
+        <a href="mission-14-connect-android-auto/mission-14-connect-android-auto.html">Connect Android Auto</a>
+        <a href="mission-15-connect-apple-carplay/mission-15-connect-apple-carplay.html">Connect Apple CarPlay</a>
+      </div>
+      <div class="center-action"><a class="secondary-action" href="mission-library.html">Browse All Skills</a></div>
+    </section>
+
+    <section class="closing-invitation">
+      <p class="series-label">New episodes will be added</p>
+      <h2>There is always another road ahead.</h2>
+      <p>Play an episode, learn something useful, and come back for the next trip with Alex and friends.</p>
+      <a class="primary-action" href="adventures/borrowing-moms-car/index.html">Start the Series</a>
     </section>
   </main>
 
