@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}} | Adventure Learning</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../index.html">Home</a>
+  <a href="../adventures.html">Episodes</a>
+  <a href="../mission-library.html">Learn</a>
+  <a href="../meet-tony.html">Meet the Crew</a>
+</nav>
+<header class="page-header skill-hero">
+  <p class="eyebrow">{{EYEBROW}}</p>
+  <h1>{{TITLE}}</h1>
+  <p>{{INTRO}}</p>
+</header>
+<main class="skill-guide">
+  <section class="skill-section situation-card">
+    <h2>Alex's Situation</h2>
+    <p>{{SITUATION}}</p>
+  </section>
+  <section class="skill-section">
+    <h2>How to Do It</h2>
+    <div class="skill-card-grid">{{STEP_CARDS}}</div>
+  </section>
+  <section class="skill-section challenge-card">
+    <h2>Try It Yourself</h2>
+    <ul class="challenge-list">{{CHALLENGE_ITEMS}}</ul>
+  </section>
+  <section class="skill-section tip-card">
+    <h2>Quick Tip</h2>
+    <p>{{TIP}}</p>
+  </section>
+  <section class="skill-section tyler-card">
+    <h2>Tyler Says...</h2>
+    <blockquote>“{{TYLER_QUOTE}}”</blockquote>
+  </section>
+  <section class="skill-section centered">
+    <h2>What Alex Learned</h2>
+    <p>{{LESSON}}</p>
+    <div class="navigation-buttons">
+      <a class="nav-button primary" href="{{CONTINUE_URL}}">▶ Continue Episode</a>
+      <a class="nav-button" href="{{LIBRARY_URL}}">Browse More Guides</a>
+    </div>
+  </section>
+</main>
+<footer>© 2026 Tony Ferlazzo · Adventure Learning</footer>
+</body>
+</html>
