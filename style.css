@@ -34,4 +34,9 @@ main{width:min(100%,1050px);margin:0 auto;padding:26px 14px 46px}.home-page{widt
 .challenge-card{background:#f5fbfd}.challenge-list{list-style:none;padding:0;margin:0}.challenge-list li{margin:12px 0}.challenge-list input{width:1.2rem;height:1.2rem;vertical-align:middle;margin-right:8px}.tip-card{background:#fff9e8;border-color:#dfc878}.tyler-card{background:#fff}.tyler-card blockquote{margin-bottom:0}
 .comic-panel-review{margin:16px 0 22px}.comic-panel-review img{display:block;width:100%;height:auto;border:1px solid #bdbdbd;border-radius:10px;background:white;box-shadow:0 4px 14px rgba(0,0,0,.12)}.comic-panel-review figcaption{margin-top:8px;text-align:center;color:#5f666b;font-size:.92rem}.comic-panel-crop{max-height:430px;overflow:hidden;border-radius:10px}.comic-panel-crop img{border-radius:0}.middle-crop img{transform:translateY(-5%)}.lower-crop img{transform:translateY(-4%)}
 .first-page-crop{overflow:hidden}.first-page-crop img{clip-path:inset(0 0 7% 0);margin-bottom:-7%}
-footer{padding:22px;text-align:center;color:#5f666b}@media(max-width:760px){.feature-grid,.skill-card-grid{grid-template-columns:1fr}.navigation-buttons{display:grid}.nav-button{width:100%}.mission-list a{display:block}.mission-number{display:block}.skill-section{padding:20px}.comic-panel-crop{max-height:300px}}
+footer{padding:22px;text-align:center;color:#5f666b}
+@media(max-width:760px){
+.feature-grid,.skill-card-grid{grid-template-columns:1fr}.navigation-buttons{display:grid}.nav-button{width:100%}.mission-list a{display:block}.mission-number{display:block}.skill-section{padding:16px}.skill-guide{padding-left:8px;padding-right:8px}
+.comic-panel-review{margin:14px -16px 20px;overflow:hidden;border-radius:0}.comic-panel-review img{width:142%;max-width:none;margin-left:-21%;border-left:0;border-right:0;border-radius:0;box-shadow:none}.comic-panel-review figcaption{padding:0 16px}
+.first-page-crop img{clip-path:inset(0 0 7% 0);margin-bottom:-7%}.comic-panel-crop{max-height:390px}.middle-crop img{transform:translateY(-4%)}.lower-crop img{transform:translateY(-3%)}
+}
