@@ -14,19 +14,20 @@ main{width:min(100%,1050px);margin:0 auto;padding:26px 14px 46px}.home-page{widt
 .nav-button.primary{background:#1f6f8b;color:white}.nav-button.adventure{border-color:#875a16;color:#6d460f}.nav-button.feedback{border-color:#5b3ea8;color:#4a318c}.nav-button.disabled{border-color:#c7c7c7;background:#f2f2f2;color:#8b8b8b}
 .index-page,.about-page{width:min(100%,850px)}.mission-list{list-style:none;padding:0;display:grid;gap:12px}.mission-list a{display:flex;gap:14px;padding:16px 18px;background:white;border:1px solid #ccc;border-radius:8px;text-decoration:none;color:#174f65;font-weight:bold}.mission-number{min-width:92px;color:#5f666b;font-size:.9rem}
 
-/* Version 2 reader-facing terminology. Internal mission filenames remain unchanged. */
-.top-nav a[href$="adventures.html"],.top-nav a[href$="mission-library.html"],.top-nav a[href$="meet-tony.html"],
-.bottom-navigation a[href$="mission-library.html"],.bottom-navigation a[href$="adventures.html"],
-.bottom-navigation .navigation-buttons>.nav-button:has(+ a[href$="mission-library.html"]),
-.bottom-navigation a[href$="mission-library.html"]+.nav-button,
-.page-header>.eyebrow{font-size:0}
-.top-nav a[href$="adventures.html"]::after{content:"Episodes";font-size:1rem}
-.top-nav a[href$="mission-library.html"]::after{content:"Skills";font-size:1rem}
-.top-nav a[href$="meet-tony.html"]::after{content:"Characters";font-size:1rem}
-.bottom-navigation a[href$="mission-library.html"]::after{content:"All Skills";font-size:1rem}
-.bottom-navigation a[href$="adventures.html"]::after{content:"Choose an Episode";font-size:1rem}
-.bottom-navigation .navigation-buttons>.nav-button:has(+ a[href$="mission-library.html"])::after{content:"← Previous Skill";font-size:1rem}
-.bottom-navigation a[href$="mission-library.html"]+.nav-button::after{content:"Next Skill →";font-size:1rem}
-.page-header>.eyebrow::after{content:"Skill";font-size:.95rem}
+/* Version 2 terminology only on generated skill pages. Internal mission filenames remain unchanged. */
+body:has(.mission-pages) .top-nav a[href$="adventures.html"],
+body:has(.mission-pages) .top-nav a[href$="mission-library.html"],
+body:has(.mission-pages) .bottom-navigation a[href$="mission-library.html"],
+body:has(.mission-pages) .bottom-navigation a[href$="adventures.html"],
+body:has(.mission-pages) .bottom-navigation .navigation-buttons>.nav-button:has(+ a[href$="mission-library.html"]),
+body:has(.mission-pages) .bottom-navigation a[href$="mission-library.html"]+.nav-button,
+body:has(.mission-pages) .page-header>.eyebrow{font-size:0}
+body:has(.mission-pages) .top-nav a[href$="adventures.html"]::after{content:"Episodes";font-size:1rem}
+body:has(.mission-pages) .top-nav a[href$="mission-library.html"]::after{content:"Skills";font-size:1rem}
+body:has(.mission-pages) .bottom-navigation a[href$="mission-library.html"]::after{content:"All Skills";font-size:1rem}
+body:has(.mission-pages) .bottom-navigation a[href$="adventures.html"]::after{content:"Choose an Episode";font-size:1rem}
+body:has(.mission-pages) .bottom-navigation .navigation-buttons>.nav-button:has(+ a[href$="mission-library.html"])::after{content:"← Previous Skill";font-size:1rem}
+body:has(.mission-pages) .bottom-navigation a[href$="mission-library.html"]+.nav-button::after{content:"Next Skill →";font-size:1rem}
+body:has(.mission-pages) .page-header>.eyebrow::after{content:"Skill";font-size:.95rem}
 
 footer{padding:22px;text-align:center;color:#5f666b}@media(max-width:760px){.feature-grid{grid-template-columns:1fr}.navigation-buttons{display:grid}.nav-button{width:100%}.mission-list a{display:block}.mission-number{display:block}}
