@@ -1,3 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="384" height="930" viewBox="0 0 384 930" role="img" aria-labelledby="alex-title">
-  <title id="alex-title">Portrait of Alex</title>
-  <image width="384" height="930" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAA...
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 620" role="img" aria-labelledby="title desc">
+<title id="title">Portrait of Alex</title><desc id="desc">Friendly young man with brown hair, a charcoal shirt, and crossed arms.</desc>
+<rect width="420" height="620" rx="28" fill="#f7f5f1"/>
+<path d="M70 620V454c0-84 60-132 140-132s140 48 140 132v166" fill="#30343a"/>
+<path d="M151 315v60c0 35 118 35 118 0v-60" fill="#d9915f"/>
+<ellipse cx="210" cy="212" rx="105" ry="125" fill="#e7a16d"/>
+<path d="M108 207c-9-83 33-146 108-151 63-4 108 35 105 104-22-18-46-35-75-41-42 38-91 46-138 42z" fill="#422719"/>
+<path d="M124 153c18-59 65-86 116-80 34 4 61 23 80 54-37-15-68-22-98-16-37 8-65 24-98 42z" fill="#58321d"/>
+<ellipse cx="165" cy="220" rx="11" ry="15" fill="#3b261b"/><ellipse cx="255" cy="220" rx="11" ry="15" fill="#3b261b"/>
+<path d="M146 197q20-13 40 0M234 197q20-13 40 0" fill="none" stroke="#4b2b1c" stroke-width="8" stroke-linecap="round"/>
+<path d="M171 274q39 35 78 0" fill="#fff" stroke="#8d4e3a" stroke-width="5" stroke-linejoin="round"/>
+<path d="M91 505q58-75 125-6M329 505q-58-75-125-6" fill="none" stroke="#e7a16d" stroke-width="38" stroke-linecap="round"/>
+<path d="M85 620V490M335 620V490" stroke="#25282d" stroke-width="24"/>
+</svg>
