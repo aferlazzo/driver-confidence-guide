@@ -1,9 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
-  <rect width="800" height="800" rx="80" fill="#356246"/>
-  <circle cx="400" cy="300" r="170" fill="#64a67b"/>
-  <circle cx="340" cy="270" r="18" fill="#ffffff"/>
-  <circle cx="460" cy="270" r="18" fill="#ffffff"/>
-  <path d="M330 370 Q400 425 470 370" fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="round"/>
-  <text x="400" y="625" text-anchor="middle" font-family="Arial" font-size="120" font-weight="700" fill="#ffffff">M</text>
-  <text x="400" y="710" text-anchor="middle" font-family="Arial" font-size="44" font-weight="700" fill="#ffffff">Maya</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 620" role="img" aria-labelledby="title desc">
+<title id="title">Portrait of Maya</title><desc id="desc">Calm young woman with long dark hair, a green jacket, and a shoulder bag.</desc>
+<rect width="420" height="620" rx="28" fill="#f7f5f1"/>
+<path d="M74 620V448c0-80 61-128 136-128s136 48 136 128v172" fill="#55715a"/>
+<path d="M149 310v65c0 33 122 33 122 0v-65" fill="#d99767"/>
+<ellipse cx="210" cy="211" rx="101" ry="123" fill="#e2a06f"/>
+<path d="M105 210c-5-92 42-154 111-157 77-3 118 56 104 153-20-45-50-77-91-94-27 42-70 66-124 98z" fill="#2d2019"/>
+<path d="M110 188c-20 108 8 177 52 202-18-54-17-113 5-173M310 188c20 108-8 177-52 202 18-54 17-113-5-173" fill="#34251d"/>
+<ellipse cx="166" cy="220" rx="10" ry="14" fill="#2c211b"/><ellipse cx="254" cy="220" rx="10" ry="14" fill="#2c211b"/>
+<path d="M146 197q20-12 40 0M234 197q20-12 40 0" fill="none" stroke="#3a281f" stroke-width="8" stroke-linecap="round"/>
+<path d="M171 273q39 34 78 0" fill="#fff" stroke="#8f5140" stroke-width="5" stroke-linejoin="round"/>
+<path d="M157 427h106v193H157z" fill="#f4f0e8"/><path d="M165 455h90M165 487h90M165 519h90" stroke="#b7b1a6" stroke-width="8"/>
+<path d="M90 620V430M330 620V430" stroke="#48604c" stroke-width="28"/>
+<path d="M276 337L368 620" stroke="#8a542d" stroke-width="18"/><rect x="306" y="490" width="84" height="112" rx="12" fill="#9a6237"/>
 </svg>
