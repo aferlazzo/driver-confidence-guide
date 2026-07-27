@@ -1,9 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
-  <rect width="800" height="800" rx="80" fill="#633f72"/>
-  <circle cx="400" cy="300" r="170" fill="#9d72ad"/>
-  <circle cx="340" cy="270" r="18" fill="#ffffff"/>
-  <circle cx="460" cy="270" r="18" fill="#ffffff"/>
-  <path d="M330 370 Q400 425 470 370" fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="round"/>
-  <text x="400" y="625" text-anchor="middle" font-family="Arial" font-size="120" font-weight="700" fill="#ffffff">E</text>
-  <text x="400" y="710" text-anchor="middle" font-family="Arial" font-size="44" font-weight="700" fill="#ffffff">Emma</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 620" role="img" aria-labelledby="title desc">
+<title id="title">Portrait of Emma</title><desc id="desc">Observant young woman with glasses, a high bun, a purple sweatshirt, and a notebook.</desc>
+<rect width="420" height="620" rx="28" fill="#f7f5f1"/>
+<path d="M66 620V448c0-78 64-128 144-128s144 50 144 128v172" fill="#a884c4"/>
+<path d="M150 312v63c0 34 120 34 120 0v-63" fill="#d99563"/>
+<ellipse cx="210" cy="213" rx="99" ry="121" fill="#e2a06e"/>
+<circle cx="210" cy="78" r="56" fill="#5a321f"/><path d="M145 113q65-75 130 0" fill="none" stroke="#6b3c25" stroke-width="31" stroke-linecap="round"/>
+<path d="M108 202c-5-76 29-126 98-136 68 3 103 48 105 127-27-36-58-60-96-70-25 37-60 63-107 79z" fill="#4b2b1d"/>
+<ellipse cx="166" cy="221" rx="9" ry="13" fill="#2d211b"/><ellipse cx="254" cy="221" rx="9" ry="13" fill="#2d211b"/>
+<circle cx="165" cy="221" r="29" fill="none" stroke="#302a28" stroke-width="7"/><circle cx="255" cy="221" r="29" fill="none" stroke="#302a28" stroke-width="7"/><path d="M194 221h32" stroke="#302a28" stroke-width="7"/>
+<path d="M172 274q38 32 76 0" fill="#fff" stroke="#8e4e3c" stroke-width="5" stroke-linejoin="round"/>
+<path d="M90 620V438M330 620V438" stroke="#9775b4" stroke-width="28"/>
+<rect x="218" y="418" width="122" height="168" rx="10" fill="#73518d"/><path d="M232 439h91M232 463h91M232 487h91" stroke="#efe8f4" stroke-width="5"/>
+<path d="M116 488q58 48 117 4M304 491q-44 42-89 25" fill="none" stroke="#e2a06e" stroke-width="31" stroke-linecap="round"/>
+<path d="M80 371q22-36 48 0" fill="none" stroke="#2f2f35" stroke-width="18"/>
 </svg>
