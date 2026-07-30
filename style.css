@@ -33,7 +33,7 @@ footer{padding:22px;text-align:center;color:#5f666b}
 @media(max-width:760px){
 .top-nav{justify-content:flex-start;gap:20px;padding:11px 14px}
 .top-nav.nav-enhanced{display:flex;flex-direction:column;align-items:stretch;gap:4px;overflow:visible;padding:9px 12px}
-.top-nav.nav-enhanced .mobile-menu-toggle{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:10px 14px;border:2px solid rgba(255,255,255,.7);border-radius:8px;background:transparent;color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.top-nav.nav-enhanced .mobile-menu-toggle{display:flex;align-items:center;justify-content:flex-start;gap:9px;width:100%;padding:10px 14px;border:2px solid rgba(255,255,255,.7);border-radius:8px;background:transparent;color:#fff;font:inherit;font-weight:700;cursor:pointer}
 .top-nav.nav-enhanced .mobile-menu-toggle:hover,.top-nav.nav-enhanced .mobile-menu-toggle:focus-visible{background:rgba(255,255,255,.14);outline:3px solid rgba(255,255,255,.45);outline-offset:2px}
 .top-nav.nav-enhanced .menu-icon{font-size:1.15rem;line-height:1}
 .top-nav.nav-enhanced a{display:none;width:100%;box-sizing:border-box;padding:11px 14px;text-align:left}
