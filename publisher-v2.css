@@ -1,15 +1,15 @@
 /* DCG Publisher V2 additions */
 
-.featured-mission-page {
+.featured-skill-page {
   width: min(92vw, 780px);
   margin: 1rem auto 1.5rem;
 }
 
-.featured-mission-page .mission-pages {
+.featured-skill-page .skill-pages {
   margin: 0;
 }
 
-.featured-mission-page img {
+.featured-skill-page img {
   display: block;
   width: 100%;
   height: auto;
@@ -20,12 +20,12 @@
 }
 
 @media (max-width: 600px) {
-  .featured-mission-page {
+  .featured-skill-page {
     width: calc(100% - 1.25rem);
     margin-top: 0.75rem;
   }
 
-  .featured-mission-page img {
+  .featured-skill-page img {
     border-radius: 7px;
   }
 }

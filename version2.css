@@ -3,7 +3,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:#f3f4f6;color:#18212b;font-family:Arial,Helvetica,sans-serif;line-height:1.55}
 a{color:inherit}
 .top-nav{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;padding:12px 16px;background:#173f52}
-.top-nav a{color:#fff;text-decoration:none;font-weight:700}
+.top-nav a{padding:7px 11px;border-radius:7px;color:#fff;text-decoration:none;font-weight:700}.top-nav a:hover,.top-nav a:focus-visible{background:rgba(255,255,255,.14);text-decoration:underline;text-underline-offset:4px}.top-nav a[aria-current="page"]{background:#fff;color:#173f52;box-shadow:0 2px 8px rgba(0,0,0,.18)}
 .v2-hero{padding:66px 20px 54px;text-align:center;background:linear-gradient(145deg,#fff8df,#e8f6fb);border-bottom:1px solid #ccd6dc}
 .series-label{margin:0 0 8px;color:#875a16;font-size:.9rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
 .v2-hero h1{max-width:920px;margin:0 auto 14px;font-size:clamp(2.6rem,8vw,5.5rem);line-height:1}
