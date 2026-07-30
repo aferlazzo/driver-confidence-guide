@@ -1,5 +1,5 @@
 *{box-sizing:border-box}body{margin:0;background:#ececec;color:#1f1f1f;font-family:Arial,Helvetica,sans-serif;line-height:1.6}
-.top-nav{position:sticky;top:0;z-index:10;display:flex;justify-content:center;gap:4px 10px;overflow-x:auto;background:#1f6f8b;padding:10px 18px}.top-nav a{display:inline-block;flex:0 0 auto;padding:7px 11px;border-radius:7px;color:white;text-decoration:none;font-weight:bold;white-space:nowrap}.top-nav a:hover,.top-nav a:focus-visible{background:rgba(255,255,255,.14);text-decoration:underline;text-underline-offset:4px}.top-nav a[aria-current="page"]{background:#fff;color:#174f65;box-shadow:0 2px 8px rgba(0,0,0,.18);text-decoration:none}
+.top-nav{position:sticky;top:0;z-index:10;display:flex;justify-content:center;gap:4px 10px;overflow-x:auto;background:#1f6f8b;padding:10px 18px}.top-nav a{display:inline-block;flex:0 0 auto;padding:7px 11px;border-radius:7px;color:white;text-decoration:none;font-weight:bold;white-space:nowrap}.top-nav a:hover,.top-nav a:focus-visible{background:rgba(255,255,255,.14);text-decoration:underline;text-underline-offset:4px}.top-nav a[aria-current="page"]{background:#fff;color:#174f65;box-shadow:0 2px 8px rgba(0,0,0,.18);text-decoration:none}.mobile-menu-toggle{display:none}
 .hero{padding:68px 20px;text-align:center;background:linear-gradient(145deg,#fff,#e8f5f9);border-bottom:1px solid #cfcfcf}.hero h1{margin:4px 0 8px;font-size:clamp(2.2rem,7vw,4.8rem);line-height:1.05}
 .eyebrow{margin:0;color:#174f65;font-size:.95rem;font-weight:bold;letter-spacing:.08em;text-transform:uppercase}.hero-subtitle{font-size:clamp(1.2rem,3vw,1.7rem);font-weight:bold}.hero-copy{max-width:720px;margin:16px auto 28px}
 .hero-button,.card-button{display:inline-block;padding:14px 20px;border-radius:8px;background:#1f6f8b;color:white;text-decoration:none;font-weight:bold}
@@ -32,6 +32,13 @@ main{width:min(100%,1050px);margin:0 auto;padding:26px 14px 46px}.home-page{widt
 footer{padding:22px;text-align:center;color:#5f666b}
 @media(max-width:760px){
 .top-nav{justify-content:flex-start;gap:20px;padding:11px 14px}
+.top-nav.nav-enhanced{display:flex;flex-direction:column;align-items:stretch;gap:4px;overflow:visible;padding:9px 12px}
+.top-nav.nav-enhanced .mobile-menu-toggle{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:10px 14px;border:2px solid rgba(255,255,255,.7);border-radius:8px;background:transparent;color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.top-nav.nav-enhanced .mobile-menu-toggle:hover,.top-nav.nav-enhanced .mobile-menu-toggle:focus-visible{background:rgba(255,255,255,.14);outline:3px solid rgba(255,255,255,.45);outline-offset:2px}
+.top-nav.nav-enhanced .menu-icon{font-size:1.15rem;line-height:1}
+.top-nav.nav-enhanced a{display:none;width:100%;box-sizing:border-box;padding:11px 14px;text-align:left}
+.top-nav.nav-enhanced.is-open a{display:block}
+.top-nav.nav-enhanced.is-open a[aria-current="page"]{box-shadow:none}
 .feature-grid,.skill-card-grid,.feedback-grid{grid-template-columns:1fr}.navigation-buttons{display:grid}.nav-button{width:100%}.skill-list a{display:block}.skill-number{display:block}.skill-section{padding:16px}.skill-guide{padding-left:8px;padding-right:8px}
 .comic-panel-review{margin:14px -16px 20px;overflow:hidden;border-radius:0}.comic-panel-review img{width:142%;max-width:none;margin-left:-21%;border-left:0;border-right:0;border-radius:0;box-shadow:none}.comic-panel-review figcaption{padding:0 16px}
 .first-page-crop img{clip-path:inset(0 0 7% 0);margin-bottom:-7%}.comic-panel-crop{max-height:390px}.middle-crop img{transform:translateY(-4%)}.lower-crop img{transform:translateY(-3%)}
