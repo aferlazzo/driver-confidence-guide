@@ -1,7 +1,7 @@
 # Driver Confidence Guide (DCG)
 ## Project Overview
 
-**Version 1.1**
+**Version 1.1.0**
 
 ## Purpose
 
