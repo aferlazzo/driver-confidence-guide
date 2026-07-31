@@ -24,7 +24,6 @@ main{width:min(100%,1050px);margin:0 auto;padding:26px 14px 46px}.home-page{widt
 /* Continuous mission lesson pages. */
 .skill-title{padding:28px 20px}.skill-title h1{text-transform:uppercase;letter-spacing:.02em}
 .skill-lesson{width:min(100%,900px);padding-top:22px}.skill-lesson .skill-pages{gap:0}.skill-lesson .skill-pages img{border:0;box-shadow:none}
-.skill-lesson .skill-pages img.crop-print-footer{clip-path:inset(0 0 15% 0);margin-bottom:-15%}
 .lesson-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
 /* Feedback experience */
 .feedback-hero p{max-width:760px;margin:12px auto 0}.feedback-hero>.eyebrow{font-size:.95rem}.feedback-hero>.eyebrow::after{content:none}.feedback-page{width:min(100%,980px)}
