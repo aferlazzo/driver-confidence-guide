@@ -24,6 +24,8 @@ main{width:min(100%,1050px);margin:0 auto;padding:26px 14px 46px}.home-page{widt
 .skill-title{padding:28px 20px}.skill-title h1{text-transform:uppercase;letter-spacing:.02em}
 .skill-lesson{width:min(100%,900px);padding-top:22px}.skill-lesson .skill-pages{gap:0}.skill-lesson .skill-pages img{border:0;box-shadow:none}
 .lesson-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
+.accessible-summary{margin:28px 14px 0;padding:24px;background:#fff;border:1px solid #bfcbd0;border-left:6px solid #1f6f8b;border-radius:10px}.accessible-summary h2{margin-top:0}.accessible-summary li{margin:10px 0}.summary-intro{color:#4f5b60}.vehicle-note{margin:18px 0 0;padding:14px;background:#fff7df;border-radius:8px}.secondary-links{margin-top:24px}
+.choice-consequence{margin:24px 0;padding:20px;border-left:6px solid #b56818;border-radius:10px;background:#fff4e5}.choice-consequence h2{margin:4px 0 8px}
 /* Feedback experience */
 .feedback-hero p{max-width:760px;margin:12px auto 0}.feedback-hero>.eyebrow{font-size:.95rem}.feedback-hero>.eyebrow::after{content:none}.feedback-page{width:min(100%,980px)}
 .feedback-intro,.feedback-questions,.feedback-action{margin:0 0 24px;padding:28px;background:white;border:1px solid #cfcfcf;border-radius:12px}.feedback-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:24px}.feedback-card{padding:24px;background:white;border:1px solid #cfcfcf;border-radius:12px;box-shadow:0 3px 12px rgba(0,0,0,.07)}.feedback-card h2{margin:6px 0 8px;font-size:1.25rem}.feedback-icon{font-size:2.2rem}.feedback-questions ul{padding-left:1.3rem}.feedback-questions li{margin:10px 0}.feedback-action{background:#eef8fb}.feedback-thanks{margin:20px 0 0;color:#4f5b60}
