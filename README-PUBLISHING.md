@@ -75,6 +75,15 @@ Do not use destructive Git reset commands. If a rollback is needed, identify the
 
 The PDF and Comic Life sources are outside Git. They require a separate Windows, cloud, or external-drive backup. Confirm that `01_Missions` is included in that backup.
 
+For a manual verified backup, use a cloud-synced or external-drive destination:
+
+```powershell
+.\Backup-DcgSources.ps1 -BackupRoot "D:\DCG-Backups"
+.\Backup-DcgSources.ps1 -BackupRoot "D:\DCG-Backups" -Execute
+```
+
+The first command previews the file count and size. The second creates a dated ZIP and a SHA-256 checksum file. Do not use a folder on the same C: drive as the only backup.
+
 ## Current and retired locations
 
 | Purpose | Location |
