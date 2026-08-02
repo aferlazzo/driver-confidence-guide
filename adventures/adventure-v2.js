@@ -23,12 +23,27 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.choice').forEach(button=>{
     button.addEventListener('click',()=>{
       const step=button.closest('.episode-step');
-      step.querySelectorAll('.choice').forEach(choice=>choice.disabled=true);
+      const choices=[...step.querySelectorAll('.choice')];
+      const outcomes=[...step.querySelectorAll('.outcome')];
       const outcome=document.getElementById(button.dataset.result);
-      outcome.hidden=false;
-      if(button.dataset.correct==='true'){
+      const isCorrect=button.dataset.correct==='true';
+
+      if(isCorrect){
+        choices.forEach(choice=>choice.disabled=true);
+        outcomes.forEach(result=>result.hidden=true);
+        outcome.hidden=false;
         score+=1;
         scoreText.textContent=score;
+      }else{
+        button.disabled=true;
+        outcome.hidden=false;
+        outcome.querySelectorAll('.continue-button').forEach(next=>next.hidden=true);
+        if(!outcome.querySelector('.retry-prompt')){
+          const prompt=document.createElement('p');
+          prompt.className='retry-prompt';
+          prompt.textContent='That detour ends here. Pick another choice and keep the story moving.';
+          outcome.appendChild(prompt);
+        }
       }
       outcome.scrollIntoView({behavior:'smooth',block:'nearest'});
     });
@@ -45,6 +60,8 @@ document.addEventListener('DOMContentLoaded',()=>{
       steps.forEach(step=>{
         step.querySelectorAll('.choice').forEach(choice=>choice.disabled=false);
         step.querySelectorAll('.outcome').forEach(outcome=>outcome.hidden=true);
+        step.querySelectorAll('.continue-button').forEach(next=>next.hidden=false);
+        step.querySelectorAll('.retry-prompt').forEach(prompt=>prompt.remove());
       });
       showStep(0);
       window.scrollTo({top:0,behavior:'smooth'});
