@@ -5,6 +5,21 @@
   nav.id ||= "site-navigation";
   nav.classList.add("nav-enhanced");
 
+  if (![...nav.querySelectorAll("a")].some((link) => link.textContent.trim() === "Meet the Crew")) {
+    const homeLink = [...nav.querySelectorAll("a")].find(
+      (link) => link.textContent.trim() === "Home"
+    );
+    const aboutLink = [...nav.querySelectorAll("a")].find(
+      (link) => link.textContent.trim() === "About"
+    );
+    if (homeLink) {
+      const crewLink = document.createElement("a");
+      crewLink.href = new URL("characters/index.html", homeLink.href).href;
+      crewLink.textContent = "Meet the Crew";
+      nav.insertBefore(crewLink, aboutLink || null);
+    }
+  }
+
   const menuButton = document.createElement("button");
   menuButton.type = "button";
   menuButton.className = "mobile-menu-toggle";
@@ -61,6 +76,8 @@
     label = "Adventures";
   } else if (path.includes("/skill-") || path.endsWith("/skills.html")) {
     label = "Skills Library";
+  } else if (path.includes("/characters/")) {
+    label = "Meet the Crew";
   } else if (path.endsWith("/about-tony.html")) {
     label = "About";
   } else if (path.endsWith("/feedback.html")) {
