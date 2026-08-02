@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded',()=>{
   const storageKey=`dcg-adventure:${location.pathname}`;
   let current=0;
 
+  // Incorrect outcomes explain the consequence, but never advance the story.
+  // Remove their legacy Continue buttons so the learner must choose again.
+  document.querySelectorAll('.outcome.risky .continue-button').forEach(next=>next.remove());
+
   function saveState(){
     try{
       sessionStorage.setItem(storageKey,JSON.stringify({
@@ -79,7 +83,6 @@ document.addEventListener('DOMContentLoaded',()=>{
         saveState();
       }else{
         button.disabled=true;
-        outcome.querySelectorAll('.continue-button').forEach(next=>next.hidden=true);
         if(!outcome.querySelector('.retry-prompt')){
           const prompt=document.createElement('p');
           prompt.className='retry-prompt';
