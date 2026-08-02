@@ -26,6 +26,12 @@ function Assert-Environment {
     if (-not (Test-Path -LiteralPath (Join-Path $LiveRepo ".git") -PathType Container)) {
         throw "Current website Git repository not found: $LiveRepo"
     }
+    if (-not (Test-Path -LiteralPath (Join-Path $LiveRepo "lesson-accessibility.js") -PathType Leaf)) {
+        throw "Protected website behavior is missing: lesson-accessibility.js"
+    }
+    if (-not (Test-Path -LiteralPath (Join-Path $LiveRepo "adventures\adventure-v2.js") -PathType Leaf)) {
+        throw "Protected Adventure behavior is missing: adventures\adventure-v2.js"
+    }
     $remote = (& git -C $LiveRepo remote get-url origin 2>$null)
     if ($LASTEXITCODE -ne 0 -or $remote -notmatch 'aferlazzo/driver-confidence-guide') {
         throw "Safety check failed: unexpected Git remote: $remote"
@@ -106,6 +112,17 @@ function Test-SkillFolder([string]$Folder) {
         throw "Validation failed: expected one Skill HTML file in $Folder."
     }
     $htmlText = Get-Content -LiteralPath $htmlFiles[0].FullName -Raw
+    $requiredPatterns = [ordered]@{
+        "Skill lesson container" = '<main class="skill-lesson'
+        "Generated panel container" = '<div class="skill-pages"'
+        "End-of-Skill actions" = '<nav class="lesson-actions"'
+        "Accessibility and Return-to-Adventure script" = 'lesson-accessibility\.js'
+    }
+    foreach ($requirement in $requiredPatterns.GetEnumerator()) {
+        if ($htmlText -notmatch $requirement.Value) {
+            throw "Validation failed: $($requirement.Key) is missing from $($htmlFiles[0].FullName). Publishing stopped to protect hand-built website behavior."
+        }
+    }
     $references = @([regex]::Matches($htmlText, 'images/(page-\d{2}\.png)') |
         ForEach-Object { $_.Groups[1].Value } | Sort-Object -Unique)
     $imagesFolder = Join-Path $Folder "images"
@@ -298,6 +315,15 @@ for job in jobs:
         pixmap.save(images_dir / f"page-{index + 1:02d}.png")
 
     page_html = html_path.read_text(encoding="utf-8")
+    protected_shell, shell_count = re.subn(
+        r'(<div class="skill-pages"[^>]*>).*?(</div>)',
+        r'\1__DCG_GENERATED_PANELS__\2',
+        page_html,
+        count=1,
+        flags=re.S,
+    )
+    if shell_count != 1:
+        raise RuntimeError(f"Could not identify the protected Skill shell in {html_path}")
     heading = re.search(r"<h1>(.*?)</h1>", page_html, re.S)
     if not heading:
         raise RuntimeError(f"Missing H1 in {html_path}")
@@ -319,6 +345,17 @@ for job in jobs:
     )
     if count != 1:
         raise RuntimeError(f"Could not update image list in {html_path}")
+    updated_shell, updated_shell_count = re.subn(
+        r'(<div class="skill-pages"[^>]*>).*?(</div>)',
+        r'\1__DCG_GENERATED_PANELS__\2',
+        page_html,
+        count=1,
+        flags=re.S,
+    )
+    if updated_shell_count != 1 or updated_shell != protected_shell:
+        raise RuntimeError(
+            f"Protected Skill HTML changed outside the generated panel list: {html_path}"
+        )
     html_path.write_text(page_html, encoding="utf-8")
     expected = [f"page-{index + 1:02d}.png" for index in range(len(document))]
     actual = sorted(path.name for path in images_dir.glob("page-*.png"))
