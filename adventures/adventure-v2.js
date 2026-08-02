@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded',()=>{
   const steps=[...document.querySelectorAll('.episode-step')];
   const fill=document.querySelector('.progress-fill');
+  const progressTrack=document.querySelector('.progress-track');
   const status=document.querySelector('.scene-status');
   const scoreText=document.querySelector('.score-value');
   const finalScore=document.querySelector('.final-score-value');
@@ -35,8 +36,18 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   function updateScore(){
     const score=completedSteps.size;
+    const decisionCount=Math.max(1,steps.length-1);
+    const percent=Math.min(100,(score/decisionCount)*100);
     scoreText.textContent=score;
     if(finalScore) finalScore.textContent=score;
+    fill.style.width=`${percent}%`;
+    if(progressTrack){
+      progressTrack.setAttribute('role','progressbar');
+      progressTrack.setAttribute('aria-label','Adventure decisions completed');
+      progressTrack.setAttribute('aria-valuemin','0');
+      progressTrack.setAttribute('aria-valuemax',String(decisionCount));
+      progressTrack.setAttribute('aria-valuenow',String(score));
+    }
   }
 
   function showStep(index){
@@ -46,7 +57,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     const isFinish=safeIndex===steps.length-1;
     const decisionCount=steps.length-1;
     status.textContent=isFinish?'Adventure complete':`Scene ${safeIndex+1} of ${decisionCount}`;
-    fill.style.width=`${Math.min(100,((safeIndex+1)/steps.length)*100)}%`;
     updateScore();
     saveState();
     if(isFinish){
