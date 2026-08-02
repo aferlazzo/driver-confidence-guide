@@ -31,4 +31,37 @@
   section.setAttribute("aria-labelledby", "accessible-summary-title");
   section.innerHTML = `<h2 id="accessible-summary-title">Quick text summary</h2><p class="summary-intro">Prefer text, using a screen reader, or need the main idea quickly?</p><ol>${lessons[key].map((item) => `<li>${item}</li>`).join("")}</ol><p class="vehicle-note"><strong>Important:</strong> Vehicles differ. Follow your owner’s manual whenever its instructions differ from this general guide.</p>`;
   lesson.insertBefore(section, lesson.querySelector(".lesson-actions"));
+
+  let adventureUrl = null;
+  try {
+    const referrer = new URL(document.referrer);
+    const adventurePath = /^\/driver-confidence-guide\/adventures\/([a-z0-9-]+)\/index\.html$/;
+    if (referrer.origin === location.origin && adventurePath.test(referrer.pathname)) {
+      adventureUrl = referrer.href;
+    }
+  } catch (_) {
+    adventureUrl = null;
+  }
+
+  if (adventureUrl) {
+    const returnBar = document.createElement("nav");
+    returnBar.setAttribute("aria-label", "Return to Adventure");
+    returnBar.style.cssText = "position:sticky;top:68px;z-index:7;margin:0 0 18px;padding:14px 16px;border:2px solid #287a4b;border-radius:12px;background:#edf8f1;box-shadow:0 5px 16px rgba(23,50,74,.14);text-align:center";
+
+    const returnButton = document.createElement("button");
+    returnButton.type = "button";
+    returnButton.textContent = "← Return to Adventure";
+    returnButton.style.cssText = "padding:12px 18px;border:0;border-radius:9px;background:#287a4b;color:#fff;font:inherit;font-weight:800;cursor:pointer";
+    returnButton.addEventListener("click", () => {
+      window.close();
+      setTimeout(() => { location.href = adventureUrl; }, 250);
+    });
+
+    const note = document.createElement("span");
+    note.textContent = " Your story progress is waiting in the previous tab.";
+    note.style.cssText = "display:block;margin-top:7px;color:#365747;font-size:.9rem";
+
+    returnBar.append(returnButton, note);
+    lesson.insertBefore(returnBar, lesson.firstChild);
+  }
 })();
