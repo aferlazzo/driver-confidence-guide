@@ -5,6 +5,15 @@
   nav.id ||= "site-navigation";
   nav.classList.add("nav-enhanced");
 
+  const adventuresLink = [...nav.querySelectorAll("a")].find(
+    (link) => link.textContent.trim() === "Adventures"
+  );
+  if (adventuresLink) {
+    const adventuresUrl = new URL(adventuresLink.href);
+    adventuresUrl.searchParams.set("v", "20260802-season1-complete");
+    adventuresLink.href = adventuresUrl.href;
+  }
+
   if (![...nav.querySelectorAll("a")].some((link) => link.textContent.trim() === "Meet the Crew")) {
     const homeLink = [...nav.querySelectorAll("a")].find(
       (link) => link.textContent.trim() === "Home"
