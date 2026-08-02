@@ -19,7 +19,8 @@
     "skill-17-tool-kit": ["Carry a flashlight, reflective warning equipment, gloves, tire gauge, first-aid supplies, water, phone charger, and vehicle-appropriate emergency equipment.", "Secure loose items so they cannot become hazards in a sudden stop."],
     "skill-18-squeaky-brakes": ["Brake noises can signal wear, debris, moisture, or a more serious problem.", "Grinding, reduced braking, pulling, vibration, warning lights, or a soft pedal require prompt professional attention. Do not keep driving a vehicle that may not stop safely."],
     "skill-19-call-for-help": ["Stop when the situation is unsafe, the vehicle behaves abnormally, or you do not understand the required procedure.", "Move away from traffic if possible, use hazard lights, share your location, and contact roadside assistance, emergency services, or a trusted person as appropriate."],
-    "skill-20-monthly-checks": ["Once a month, inspect tires, lights, washer fluid, visible leaks, wiper condition, and warning indicators.", "Use the owner’s manual for the complete vehicle-specific schedule and address changes before they become larger problems."]
+    "skill-20-monthly-checks": ["Once a month, inspect tires, lights, washer fluid, visible leaks, wiper condition, and warning indicators.", "Use the owner’s manual for the complete vehicle-specific schedule and address changes before they become larger problems."],
+    "skill-21-hawk-signals": ["A dark HAWK is inactive; flashing yellow means slow, steady yellow means prepare to stop, and steady red means stop and remain stopped.", "During alternating flashing red, every driver must stop independently and may proceed only after pedestrians have cleared that driver’s side of the roadway."]
   };
 
   const key = Object.keys(lessons).find((name) => location.pathname.includes(name));
@@ -29,7 +30,10 @@
   const section = document.createElement("section");
   section.className = "accessible-summary";
   section.setAttribute("aria-labelledby", "accessible-summary-title");
-  section.innerHTML = `<h2 id="accessible-summary-title">Quick text summary</h2><p class="summary-intro">Prefer text, using a screen reader, or need the main idea quickly?</p><ol>${lessons[key].map((item) => `<li>${item}</li>`).join("")}</ol><p class="vehicle-note"><strong>Important:</strong> Vehicles differ. Follow your owner’s manual whenever its instructions differ from this general guide.</p>`;
+  const importantNote = key === "skill-21-hawk-signals"
+    ? "Traffic rules and signal operation can change. Obey posted signs, traffic-control devices, law enforcement, and current Arizona law."
+    : "Vehicles differ. Follow your owner’s manual whenever its instructions differ from this general guide.";
+  section.innerHTML = `<h2 id="accessible-summary-title">Quick text summary</h2><p class="summary-intro">Prefer text, using a screen reader, or need the main idea quickly?</p><ol>${lessons[key].map((item) => `<li>${item}</li>`).join("")}</ol><p class="vehicle-note"><strong>Important:</strong> ${importantNote}</p>`;
   lesson.insertBefore(section, lesson.querySelector(".lesson-actions"));
 
   let adventureUrl = null;
