@@ -46,7 +46,7 @@
   if (adventureUrl) {
     const returnBar = document.createElement("nav");
     returnBar.setAttribute("aria-label", "Return to Adventure");
-    returnBar.style.cssText = "position:sticky;top:68px;z-index:7;margin:0 0 18px;padding:14px 16px;border:2px solid #287a4b;border-radius:12px;background:#edf8f1;box-shadow:0 5px 16px rgba(23,50,74,.14);text-align:center";
+    returnBar.style.cssText = "margin:30px 0 0;padding:18px 16px;border:2px solid #287a4b;border-radius:12px;background:#edf8f1;box-shadow:0 5px 16px rgba(23,50,74,.14);text-align:center";
 
     const returnButton = document.createElement("button");
     returnButton.type = "button";
@@ -62,6 +62,6 @@
     note.style.cssText = "display:block;margin-top:7px;color:#365747;font-size:.9rem";
 
     returnBar.append(returnButton, note);
-    lesson.insertBefore(returnBar, lesson.firstChild);
+    lesson.appendChild(returnBar);
   }
 })();
