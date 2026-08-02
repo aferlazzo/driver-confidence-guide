@@ -44,7 +44,7 @@ This records hashes of the PDFs already represented on the website. It does not 
    .\Update-SkillsWebsite.ps1 -Publish
    ```
 
-Publishing validates page numbering, PNG readability and size, HTML references, and Git scope. It commits and pushes only `skill-XX-*` folders, then checks the public GitHub Pages site.
+Publishing validates page numbering, PNG readability and size, HTML references, protected Skill structure, and Git scope. The PDF renderer is permitted to replace only the images inside the `skill-pages` panel container. It stops if anything outside that generated panel list changes, or if the Skill navigation, accessibility script, or Return-to-Adventure support is missing. It commits and pushes only `skill-XX-*` folders, then checks the public GitHub Pages site.
 
 ## Updating selected Skills
 
@@ -56,6 +56,7 @@ To regenerate particular Skills regardless of change detection:
 
 ## Safety rules
 
+- The publisher may update only PDF panel images and the generated image list. Adventure code, navigation, accessibility summaries, Skill actions, and Return-to-Adventure behavior are protected.
 - Never publish from `02_Web_Output`.
 - Never run the retired `publish_dcg.py`; it creates obsolete `mission-*` pages.
 - Never place editable PDFs in the website repository.
