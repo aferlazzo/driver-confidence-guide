@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     {slug:'road-trip-phoenix',title:'Your First Road Trip to Phoenix',teaser:'The road trip is complete—but Tucson still has one local trick left: a dark HAWK signal that suddenly starts talking.'},
     {slug:'hawk-signal-visitor',title:'The Tucson Signal That Goes Dark',teaser:'Jordan understands the signal. Next, Emma learns to recognize a pedestrian emergency while it is still only a collection of clues.'},
     {slug:'unexpected-pedestrians',title:'Unexpected Pedestrians',teaser:'Emma sees the emergency early. Next, Maya faces a disappearing lane and discovers that taking turns can be a traffic strategy instead of a childhood lecture.'},
-    {slug:'zipper-merge',title:'The Lane That Disappears',teaser:'Season 1 complete. Maya knows that a good merge uses the whole road, follows the signs, and leaves the ego several car lengths behind.'}
+    {slug:'zipper-merge',title:'The Lane That Disappears',teaser:'Maya completes the merge. Next, Tucson offers yellow-light racers, a fresh-green trap, and an intersection with nowhere to put another car.'},
+    {slug:'changing-traffic-lights',title:'The Light Is Not a Starting Gun',teaser:'Season 1 complete. Maya knows that green means go only when clear—and yellow never awards a trophy.'}
   ];
 
   const currentSlug=location.pathname.split('/').filter(Boolean).slice(-2,-1)[0]||'';
