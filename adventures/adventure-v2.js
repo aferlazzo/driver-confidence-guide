@@ -8,29 +8,108 @@ document.addEventListener('DOMContentLoaded',()=>{
   const completedSteps=new Set();
   const storageKey=`dcg-adventure:${location.pathname}`;
   const completionKey=`${storageKey}:completion-reported`;
+  const seasonKey='dcg-season-1-progress';
   let current=0;
+
+  const season=[
+    {slug:'borrowing-moms-car',title:"Borrow Mom's Car",teaser:'Alex returns the keys, but the crew’s next outing includes low fuel, zoo parking, and a bird with excellent aim.'},
+    {slug:'zoo-day',title:'Go to the Zoo',teaser:'The zoo trip ends safely. Next, the crew trades pavement for gravel, packed gear, and a tire that chooses terrible timing.'},
+    {slug:'go-camping',title:'Go Camping',teaser:'Camping proves they can handle the unexpected. Emma’s important morning is about to test whether she can change the plan before trouble changes it for her.'},
+    {slug:'emmas-important-morning',title:"Emma's Very Important Morning",teaser:'Emma makes the smart call. Movie night is next, where glare, a questionable tire, and a silent starter join the cast.'},
+    {slug:'movie-night',title:'Movie Night at Roadhouse',teaser:'The movie ends. The next grocery run begins innocently, which is usually when a watermelon decides to become a projectile.'},
+    {slug:'grocery-run',title:'The Grocery Run That Grew Teeth',teaser:'The yogurt survives. Next, Alex moves into college with cargo Tetris, campus confusion, and an overheating lesson in line.'},
+    {slug:'first-day-college',title:'Alex Moves into College',teaser:'Alex reaches campus. The crew’s next test happens after dark, when small problems become harder to read and easier to imagine.'},
+    {slug:'driving-home-at-night',title:'Driving Home After Dark',teaser:'Everyone gets home safely. Prom night is next, and formal clothes do not make curb damage or tire trouble more elegant.'},
+    {slug:'prom-night',title:'Prom Night Without the Limousine',teaser:'Prom survives the changed plan. Next stop: Mount Lemmon, where mountain roads reward preparation and punish wishful thinking.'},
+    {slug:'mount-lemmon',title:'Escape to Mount Lemmon',teaser:'The mountain teaches its lesson. Tucson’s monsoon season is next, with dust, water, visibility, and absolutely no respect for schedules.'},
+    {slug:'arizona-monsoon',title:'Monsoon on the Way Home',teaser:'The storm passes. The season finale sends the crew to Phoenix, where preparation matters and fatigue gets the final vote.'},
+    {slug:'road-trip-phoenix',title:'Your First Road Trip to Phoenix',teaser:'The road trip is complete—but Tucson still has one local trick left: a dark HAWK signal that suddenly starts talking.'},
+    {slug:'hawk-signal-visitor',title:'The Tucson Signal That Goes Dark',teaser:'Season 1 complete. You now know more than the visitor—and possibly more than a few Tucson drivers who have been improvising for years.'}
+  ];
+
+  const currentSlug=location.pathname.split('/').filter(Boolean).slice(-2,-1)[0]||'';
+  const adventureIndex=season.findIndex(item=>item.slug===currentSlug);
+
+  function readSeasonProgress(){
+    try{
+      const value=JSON.parse(localStorage.getItem(seasonKey));
+      return value&&Array.isArray(value.completed)?value:{completed:[],lastVisited:null};
+    }catch(_){
+      return {completed:[],lastVisited:null};
+    }
+  }
+
+  function writeSeasonProgress(progress){
+    try{localStorage.setItem(seasonKey,JSON.stringify(progress));}catch(_){}
+  }
+
+  function markVisited(){
+    if(adventureIndex<0) return;
+    const progress=readSeasonProgress();
+    progress.lastVisited=currentSlug;
+    writeSeasonProgress(progress);
+  }
+
+  function markAdventureComplete(){
+    if(adventureIndex<0) return;
+    const progress=readSeasonProgress();
+    if(!progress.completed.includes(currentSlug)) progress.completed.push(currentSlug);
+    progress.lastVisited=currentSlug;
+    writeSeasonProgress(progress);
+  }
+
+  function addSeasonStatus(){
+    if(adventureIndex<0||!document.querySelector('.adventure-status')) return;
+    const progress=readSeasonProgress();
+    const seasonStatus=document.createElement('div');
+    seasonStatus.className='season-status';
+    seasonStatus.textContent=`Season 1 · Adventure ${adventureIndex+1} of ${season.length} · ${progress.completed.length} completed`;
+    document.querySelector('.adventure-status').insertAdjacentElement('afterend',seasonStatus);
+  }
+
+  function addFinishMagnets(){
+    const finish=document.querySelector('.adventure-finish');
+    if(!finish||finish.querySelector('.continuity-card')||adventureIndex<0) return;
+    const progress=readSeasonProgress();
+    const next=season[adventureIndex+1];
+    const card=document.createElement('aside');
+    card.className='continuity-card';
+    const identity=document.createElement('p');
+    identity.className='identity-reward';
+    identity.textContent='You are becoming the kind of driver who checks first, stays calm, and knows when to change the plan.';
+    const progressText=document.createElement('p');
+    progressText.className='season-progress-copy';
+    progressText.textContent=`Season progress: ${progress.completed.length} of ${season.length} Adventures completed.`;
+    const teaser=document.createElement('p');
+    teaser.className='next-story-teaser';
+    teaser.textContent=season[adventureIndex].teaser;
+    card.append(identity,progressText,teaser);
+    if(next){
+      const link=document.createElement('a');
+      link.className='nav-button primary continuity-button';
+      link.href=`../${next.slug}/index.html`;
+      link.textContent=`Continue the story: ${next.title}`;
+      card.appendChild(link);
+    }else{
+      const link=document.createElement('a');
+      link.className='nav-button primary continuity-button';
+      link.href='../../adventures.html';
+      link.textContent='Revisit Season 1';
+      card.appendChild(link);
+    }
+    const links=finish.querySelector('.adventure-links');
+    finish.insertBefore(card,links||null);
+  }
 
   function reportEvent(name,details={}){
     if(typeof window.gtag!=="function") return;
-    window.gtag("event",name,{
-      adventure_path:location.pathname,
-      ...details
-    });
+    window.gtag("event",name,{adventure_path:location.pathname,...details});
   }
 
-  // Incorrect outcomes explain the consequence, but never advance the story.
-  // Remove their legacy Continue buttons so the learner must choose again.
   document.querySelectorAll('.outcome.risky .continue-button').forEach(next=>next.remove());
 
   function saveState(){
-    try{
-      sessionStorage.setItem(storageKey,JSON.stringify({
-        current,
-        completed:[...completedSteps]
-      }));
-    }catch(_){
-      // The Adventure still works when private-browser storage is unavailable.
-    }
+    try{sessionStorage.setItem(storageKey,JSON.stringify({current,completed:[...completedSteps]}));}catch(_){}
   }
 
   function readState(){
@@ -38,18 +117,16 @@ document.addEventListener('DOMContentLoaded',()=>{
       const saved=JSON.parse(sessionStorage.getItem(storageKey));
       if(!saved||!Array.isArray(saved.completed)) return null;
       return saved;
-    }catch(_){
-      return null;
-    }
+    }catch(_){return null;}
   }
 
   function updateScore(){
     const score=completedSteps.size;
     const decisionCount=Math.max(1,steps.length-1);
     const percent=Math.min(100,(score/decisionCount)*100);
-    scoreText.textContent=score;
+    if(scoreText) scoreText.textContent=score;
     if(finalScore) finalScore.textContent=score;
-    fill.style.width=`${percent}%`;
+    if(fill) fill.style.width=`${percent}%`;
     if(progressTrack){
       progressTrack.setAttribute('role','progressbar');
       progressTrack.setAttribute('aria-label','Adventure decisions completed');
@@ -65,19 +142,22 @@ document.addEventListener('DOMContentLoaded',()=>{
     current=safeIndex;
     const isFinish=safeIndex===steps.length-1;
     const decisionCount=steps.length-1;
-    status.textContent=isFinish?'Adventure complete':`Scene ${safeIndex+1} of ${decisionCount}`;
+    if(status) status.textContent=isFinish?'Adventure complete':`Scene ${safeIndex+1} of ${decisionCount}`;
     updateScore();
     saveState();
     if(isFinish){
       if(completedSteps.size===decisionCount){
+        markAdventureComplete();
+        addFinishMagnets();
         let alreadyReported=false;
         try{alreadyReported=sessionStorage.getItem(completionKey)==="true";}catch(_){}
         if(!alreadyReported){
-          reportEvent("adventure_complete",{decisions_completed:completedSteps.size});
-          try{sessionStorage.setItem(completionKey,"true");}catch(_){}
+          reportEvent('adventure_complete',{decisions_completed:completedSteps.size});
+          try{sessionStorage.setItem(completionKey,'true');}catch(_){}
         }
       }
-      document.querySelector('.adventure-status').scrollIntoView({behavior:'smooth',block:'start'});
+      const adventureStatus=document.querySelector('.adventure-status');
+      if(adventureStatus) adventureStatus.scrollIntoView({behavior:'smooth',block:'start'});
     }
   }
 
@@ -95,15 +175,10 @@ document.addEventListener('DOMContentLoaded',()=>{
       const step=button.closest('.episode-step');
       const outcome=document.getElementById(button.dataset.result);
       if(!step||!outcome||step.dataset.resolved==='true') return;
-
       const choices=[...step.querySelectorAll('.choice')];
       const outcomes=[...step.querySelectorAll('.outcome')];
       const isCorrect=button.dataset.correct==='true';
-      reportEvent("adventure_choice",{
-        scene_number:steps.indexOf(step)+1,
-        correct_choice:isCorrect
-      });
-
+      reportEvent('adventure_choice',{scene_number:steps.indexOf(step)+1,correct_choice:isCorrect});
       if(isCorrect){
         step.dataset.resolved='true';
         choices.forEach(choice=>choice.disabled=true);
@@ -136,20 +211,14 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.skill-link').forEach(link=>{
     link.addEventListener('click',()=>{
       const step=link.closest('.episode-step');
-      reportEvent("adventure_skill_open",{
-        scene_number:step?steps.indexOf(step)+1:null,
-        skill_path:new URL(link.href,location.href).pathname
-      });
+      reportEvent('adventure_skill_open',{scene_number:step?steps.indexOf(step)+1:null,skill_path:new URL(link.href,location.href).pathname});
     });
   });
 
   document.querySelectorAll('.restart-button').forEach(button=>{
     button.addEventListener('click',()=>{
       completedSteps.clear();
-      try{
-        sessionStorage.removeItem(storageKey);
-        sessionStorage.removeItem(completionKey);
-      }catch(_){}
+      try{sessionStorage.removeItem(storageKey);sessionStorage.removeItem(completionKey);}catch(_){}
       steps.forEach(step=>{
         delete step.dataset.resolved;
         step.querySelectorAll('.choice').forEach(choice=>choice.disabled=false);
@@ -163,6 +232,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   });
 
+  markVisited();
+  addSeasonStatus();
   const saved=readState();
   if(saved){
     saved.completed.forEach(index=>{
