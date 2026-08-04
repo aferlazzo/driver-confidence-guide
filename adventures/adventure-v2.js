@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       const link=document.createElement('a');
       link.className='nav-button primary continuity-button';
       link.href=`../${next.slug}/index.html`;
-      link.textContent=`Continue the story: ${next.title}`;
+      link.textContent=`Next Adventure: ${next.title}`;
       card.appendChild(link);
     }else{
       const link=document.createElement('a');
