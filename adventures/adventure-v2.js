@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     {slug:'mount-lemmon',title:'Escape to Mount Lemmon',teaser:'The mountain teaches its lesson. Tucson’s monsoon season is next, with dust, water, visibility, and absolutely no respect for schedules.'},
     {slug:'arizona-monsoon',title:'Monsoon on the Way Home',teaser:'The storm passes. The season finale sends the crew to Phoenix, where preparation matters and fatigue gets the final vote.'},
     {slug:'road-trip-phoenix',title:'Your First Road Trip to Phoenix',teaser:'The road trip is complete—but Tucson still has one local trick left: a dark HAWK signal that suddenly starts talking.'},
-    {slug:'hawk-signal-visitor',title:'The Tucson Signal That Goes Dark',teaser:'Season 1 complete. You now know more than the visitor—and possibly more than a few Tucson drivers who have been improvising for years.'}
+    {slug:'hawk-signal-visitor',title:'The Tucson Signal That Goes Dark',teaser:'Jordan understands the signal. Next, Emma learns to recognize a pedestrian emergency while it is still only a collection of clues.'},
+    {slug:'unexpected-pedestrians',title:'Unexpected Pedestrians',teaser:'Season 1 complete. Emma did not predict the future—she noticed which possibilities deserved preparation.'}
   ];
 
   const currentSlug=location.pathname.split('/').filter(Boolean).slice(-2,-1)[0]||'';
