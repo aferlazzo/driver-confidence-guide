@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     {slug:'arizona-monsoon',title:'Monsoon on the Way Home',teaser:'The storm passes. The season finale sends the crew to Phoenix, where preparation matters and fatigue gets the final vote.'},
     {slug:'road-trip-phoenix',title:'Your First Road Trip to Phoenix',teaser:'The road trip is complete—but Tucson still has one local trick left: a dark HAWK signal that suddenly starts talking.'},
     {slug:'hawk-signal-visitor',title:'The Tucson Signal That Goes Dark',teaser:'Jordan understands the signal. Next, Emma learns to recognize a pedestrian emergency while it is still only a collection of clues.'},
-    {slug:'unexpected-pedestrians',title:'Unexpected Pedestrians',teaser:'Season 1 complete. Emma did not predict the future—she noticed which possibilities deserved preparation.'}
+    {slug:'unexpected-pedestrians',title:'Unexpected Pedestrians',teaser:'Emma sees the emergency early. Next, Maya faces a disappearing lane and discovers that taking turns can be a traffic strategy instead of a childhood lecture.'},
+    {slug:'zipper-merge',title:'The Lane That Disappears',teaser:'Season 1 complete. Maya knows that a good merge uses the whole road, follows the signs, and leaves the ego several car lengths behind.'}
   ];
 
   const currentSlug=location.pathname.split('/').filter(Boolean).slice(-2,-1)[0]||'';
