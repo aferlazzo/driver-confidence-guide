@@ -7,7 +7,16 @@ document.addEventListener('DOMContentLoaded',()=>{
   const finalScore=document.querySelector('.final-score-value');
   const completedSteps=new Set();
   const storageKey=`dcg-adventure:${location.pathname}`;
+  const completionKey=`${storageKey}:completion-reported`;
   let current=0;
+
+  function reportEvent(name,details={}){
+    if(typeof window.gtag!=="function") return;
+    window.gtag("event",name,{
+      adventure_path:location.pathname,
+      ...details
+    });
+  }
 
   // Incorrect outcomes explain the consequence, but never advance the story.
   // Remove their legacy Continue buttons so the learner must choose again.
@@ -60,6 +69,14 @@ document.addEventListener('DOMContentLoaded',()=>{
     updateScore();
     saveState();
     if(isFinish){
+      if(completedSteps.size===decisionCount){
+        let alreadyReported=false;
+        try{alreadyReported=sessionStorage.getItem(completionKey)==="true";}catch(_){}
+        if(!alreadyReported){
+          reportEvent("adventure_complete",{decisions_completed:completedSteps.size});
+          try{sessionStorage.setItem(completionKey,"true");}catch(_){}
+        }
+      }
       document.querySelector('.adventure-status').scrollIntoView({behavior:'smooth',block:'start'});
     }
   }
@@ -82,6 +99,10 @@ document.addEventListener('DOMContentLoaded',()=>{
       const choices=[...step.querySelectorAll('.choice')];
       const outcomes=[...step.querySelectorAll('.outcome')];
       const isCorrect=button.dataset.correct==='true';
+      reportEvent("adventure_choice",{
+        scene_number:steps.indexOf(step)+1,
+        correct_choice:isCorrect
+      });
 
       if(isCorrect){
         step.dataset.resolved='true';
@@ -112,10 +133,23 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   });
 
+  document.querySelectorAll('.skill-link').forEach(link=>{
+    link.addEventListener('click',()=>{
+      const step=link.closest('.episode-step');
+      reportEvent("adventure_skill_open",{
+        scene_number:step?steps.indexOf(step)+1:null,
+        skill_path:new URL(link.href,location.href).pathname
+      });
+    });
+  });
+
   document.querySelectorAll('.restart-button').forEach(button=>{
     button.addEventListener('click',()=>{
       completedSteps.clear();
-      try{sessionStorage.removeItem(storageKey);}catch(_){}
+      try{
+        sessionStorage.removeItem(storageKey);
+        sessionStorage.removeItem(completionKey);
+      }catch(_){}
       steps.forEach(step=>{
         delete step.dataset.resolved;
         step.querySelectorAll('.choice').forEach(choice=>choice.disabled=false);
