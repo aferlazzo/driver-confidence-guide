@@ -1,4 +1,20 @@
 (() => {
+  const measurementId = "G-9WMXEP7LMQ";
+  const hasAnalytics = document.querySelector(
+    `script[src*="googletagmanager.com/gtag/js?id=${measurementId}"]`
+  );
+  if (!hasAnalytics) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", measurementId);
+
+    const analyticsScript = document.createElement("script");
+    analyticsScript.async = true;
+    analyticsScript.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    document.head.appendChild(analyticsScript);
+  }
+
   const nav = document.querySelector(".top-nav");
   if (!nav) return;
 
