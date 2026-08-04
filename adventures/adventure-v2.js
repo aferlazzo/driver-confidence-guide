@@ -30,7 +30,15 @@ document.addEventListener('DOMContentLoaded',()=>{
     {slug:'changing-traffic-lights',title:'The Light Is Not a Starting Gun',teaser:'Maya handles the signals. Next, Tyler meets Cortaro traffic, railroad tracks, and the alarming discovery that awareness cannot be outsourced.'},
     {slug:'cortaro-railroad-crossing',title:'Tyler versus the Tracks',teaser:'Tyler clears the rails. Next, Alex faces I-10, where the entrance ramp is for building speed—not holding a small meeting.'},
     {slug:'alex-joins-i10',title:'Alex Joins I-10',teaser:'Alex completes his first clean freeway trip. Next, the left lane offers a dangerous mythology involving speed, pride, and one very impatient pickup.'},
-    {slug:'alex-fast-lane-myth',title:'Alex and the Fast-Lane Myth',teaser:'Season 1 complete. Alex learns that safe interstate driving is cooperation, not a rolling audition for NASCAR.'}
+    {slug:'alex-fast-lane-myth',title:'Alex and the Fast-Lane Myth',teaser:'Alex leaves the imaginary racing league. Next, Emma sees a wrong-way warning and learns that panic is not an evasive maneuver.'},
+    {slug:'wrong-way-on-i10',title:'Emma Sees Headlights Ahead',teaser:'Emma reaches safety. Next, Maya’s car begins failing where the shoulder is narrow and traffic is fast.'},
+    {slug:'i10-breakdown',title:'Maya Reaches the Shoulder',teaser:'Maya handles the breakdown. Next, Alex learns that a tractor-trailer can lose an entire car in plain sight.'},
+    {slug:'share-road-trucks',title:"The Truck That Couldn’t See Alex",teaser:'Alex escapes the No-Zone. Next, a wave of brake lights demonstrates why freeway space is measured in time, not optimism.'},
+    {slug:'freeway-following-distance',title:'The Brake-Light Accordion',teaser:'Alex preserves his cushion. Next, Tyler encounters flashing lights and nearly treats the shoulder like scenery.'},
+    {slug:'move-over-arizona',title:'Tyler Notices the Flashing Lights',teaser:'Tyler gives responders room. Next, overnight construction moves I-10’s lanes and tests Maya’s adaptability.'},
+    {slug:'i10-work-zone',title:'I-10 Moves the Lanes Overnight',teaser:'Maya clears the work zone. Next, Emma hears a tire explode and must resist every instinct to make a sudden move.'},
+    {slug:'freeway-tire-blowout',title:'Emma Hears the Tire Explode',teaser:'Emma stabilizes the car. Next, the crew approaches a wall of dust near Picacho Peak.'},
+    {slug:'i10-dust-storm',title:'Dust at Picacho Peak',teaser:'Season 1 complete. The crew learns that when Arizona erases the freeway, the safest move is to stop participating in traffic.'}
   ];
 
   const currentSlug=location.pathname.split('/').filter(Boolean).slice(-2,-1)[0]||'';
