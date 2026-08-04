@@ -115,12 +115,20 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.outcome.risky .continue-button').forEach(next=>next.remove());
 
   function saveState(){
-    try{sessionStorage.setItem(storageKey,JSON.stringify({current,completed:[...completedSteps]}));}catch(_){}
+    try{localStorage.setItem(storageKey,JSON.stringify({current,completed:[...completedSteps]}));}catch(_){}
   }
 
   function readState(){
     try{
-      const saved=JSON.parse(sessionStorage.getItem(storageKey));
+      let raw=localStorage.getItem(storageKey);
+      if(!raw){
+        raw=sessionStorage.getItem(storageKey);
+        if(raw){
+          localStorage.setItem(storageKey,raw);
+          sessionStorage.removeItem(storageKey);
+        }
+      }
+      const saved=JSON.parse(raw);
       if(!saved||!Array.isArray(saved.completed)) return null;
       return saved;
     }catch(_){return null;}
@@ -156,10 +164,17 @@ document.addEventListener('DOMContentLoaded',()=>{
         markAdventureComplete();
         addFinishMagnets();
         let alreadyReported=false;
-        try{alreadyReported=sessionStorage.getItem(completionKey)==="true";}catch(_){}
+        try{
+          alreadyReported=localStorage.getItem(completionKey)==="true";
+          if(!alreadyReported&&sessionStorage.getItem(completionKey)==="true"){
+            alreadyReported=true;
+            localStorage.setItem(completionKey,'true');
+            sessionStorage.removeItem(completionKey);
+          }
+        }catch(_){}
         if(!alreadyReported){
           reportEvent('adventure_complete',{decisions_completed:completedSteps.size});
-          try{sessionStorage.setItem(completionKey,'true');}catch(_){}
+          try{localStorage.setItem(completionKey,'true');sessionStorage.removeItem(completionKey);}catch(_){}
         }
       }
       const adventureStatus=document.querySelector('.adventure-status');
@@ -224,7 +239,12 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.restart-button').forEach(button=>{
     button.addEventListener('click',()=>{
       completedSteps.clear();
-      try{sessionStorage.removeItem(storageKey);sessionStorage.removeItem(completionKey);}catch(_){}
+      try{
+        localStorage.removeItem(storageKey);
+        localStorage.removeItem(completionKey);
+        sessionStorage.removeItem(storageKey);
+        sessionStorage.removeItem(completionKey);
+      }catch(_){}
       steps.forEach(step=>{
         delete step.dataset.resolved;
         step.querySelectorAll('.choice').forEach(choice=>choice.disabled=false);
