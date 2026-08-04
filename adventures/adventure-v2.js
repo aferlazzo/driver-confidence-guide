@@ -28,7 +28,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     {slug:'unexpected-pedestrians',title:'Unexpected Pedestrians',teaser:'Emma sees the emergency early. Next, Maya faces a disappearing lane and discovers that taking turns can be a traffic strategy instead of a childhood lecture.'},
     {slug:'zipper-merge',title:'The Lane That Disappears',teaser:'Maya completes the merge. Next, Tucson offers yellow-light racers, a fresh-green trap, and an intersection with nowhere to put another car.'},
     {slug:'changing-traffic-lights',title:'The Light Is Not a Starting Gun',teaser:'Maya handles the signals. Next, Tyler meets Cortaro traffic, railroad tracks, and the alarming discovery that awareness cannot be outsourced.'},
-    {slug:'cortaro-railroad-crossing',title:'Tyler versus the Tracks',teaser:'Season 1 complete. Tyler finally notices his surroundings—and confirms there is room beyond the rails before moving an inch.'}
+    {slug:'cortaro-railroad-crossing',title:'Tyler versus the Tracks',teaser:'Tyler clears the rails. Next, Alex faces I-10, where the entrance ramp is for building speed—not holding a small meeting.'},
+    {slug:'alex-joins-i10',title:'Alex Joins I-10',teaser:'Alex completes his first clean freeway trip. Next, the left lane offers a dangerous mythology involving speed, pride, and one very impatient pickup.'},
+    {slug:'alex-fast-lane-myth',title:'Alex and the Fast-Lane Myth',teaser:'Season 1 complete. Alex learns that safe interstate driving is cooperation, not a rolling audition for NASCAR.'}
   ];
 
   const currentSlug=location.pathname.split('/').filter(Boolean).slice(-2,-1)[0]||'';
