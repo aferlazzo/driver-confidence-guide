@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     {slug:'hawk-signal-visitor',title:'The Tucson Signal That Goes Dark',teaser:'Jordan understands the signal. Next, Emma learns to recognize a pedestrian emergency while it is still only a collection of clues.'},
     {slug:'unexpected-pedestrians',title:'Unexpected Pedestrians',teaser:'Emma sees the emergency early. Next, Maya faces a disappearing lane and discovers that taking turns can be a traffic strategy instead of a childhood lecture.'},
     {slug:'zipper-merge',title:'The Lane That Disappears',teaser:'Maya completes the merge. Next, Tucson offers yellow-light racers, a fresh-green trap, and an intersection with nowhere to put another car.'},
-    {slug:'changing-traffic-lights',title:'The Light Is Not a Starting Gun',teaser:'Season 1 complete. Maya knows that green means go only when clear—and yellow never awards a trophy.'}
+    {slug:'changing-traffic-lights',title:'The Light Is Not a Starting Gun',teaser:'Maya handles the signals. Next, Tyler meets Cortaro traffic, railroad tracks, and the alarming discovery that awareness cannot be outsourced.'},
+    {slug:'cortaro-railroad-crossing',title:'Tyler versus the Tracks',teaser:'Season 1 complete. Tyler finally notices his surroundings—and confirms there is room beyond the rails before moving an inch.'}
   ];
 
   const currentSlug=location.pathname.split('/').filter(Boolean).slice(-2,-1)[0]||'';
