@@ -218,6 +218,11 @@ document.addEventListener('DOMContentLoaded',()=>{
         saveState();
       }else{
         button.disabled=true;
+
+        outcomes.forEach(result=>{
+          if(result!==outcome) result.hidden=true;
+        });
+
         if(!outcome.querySelector('.retry-prompt')){
           const prompt=document.createElement('p');
           prompt.className='retry-prompt';
@@ -253,19 +258,35 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.restart-button').forEach(button=>{
     button.addEventListener('click',()=>{
       completedSteps.clear();
+      current=0;
+
       try{
         localStorage.removeItem(storageKey);
         localStorage.removeItem(completionKey);
         sessionStorage.removeItem(storageKey);
         sessionStorage.removeItem(completionKey);
       }catch(_){}
+
       steps.forEach(step=>{
         delete step.dataset.resolved;
-        step.querySelectorAll('.choice').forEach(choice=>choice.disabled=false);
-        step.querySelectorAll('.outcome').forEach(outcome=>outcome.hidden=true);
-        step.querySelectorAll('.continue-button').forEach(next=>next.hidden=false);
-        step.querySelectorAll('.retry-prompt').forEach(prompt=>prompt.remove());
+
+        step.querySelectorAll('.choice').forEach(choice=>{
+          choice.disabled=false;
+        });
+
+        step.querySelectorAll('.outcome').forEach(outcome=>{
+          outcome.hidden=true;
+        });
+
+        step.querySelectorAll('.continue-button').forEach(next=>{
+          next.hidden=false;
+        });
+
+        step.querySelectorAll('.retry-prompt').forEach(prompt=>{
+          prompt.remove();
+        });
       });
+
       updateScore();
       showStep(0);
       window.scrollTo({top:0,behavior:'smooth'});
