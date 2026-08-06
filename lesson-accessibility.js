@@ -68,4 +68,31 @@
     returnBar.append(returnButton, note);
     lesson.appendChild(returnBar);
   }
+
+  const closeBar = document.createElement("nav");
+  closeBar.setAttribute("aria-label", "Return to Adventure");
+  closeBar.style.cssText = "margin:30px 0;padding:18px 16px;border:2px solid #287a4b;border-radius:12px;background:#edf8f1;text-align:center";
+
+  const closeButton = document.createElement("button");
+  closeButton.type = "button";
+  closeButton.textContent = "Close skill and continue Adventure";
+  closeButton.style.cssText = "padding:12px 18px;border:0;border-radius:9px;background:#287a4b;color:#fff;font:inherit;font-weight:800;cursor:pointer";
+
+  closeButton.addEventListener("click", () => {
+    let returnUrl = null;
+    try {
+      returnUrl = localStorage.getItem("dcg-skill-return");
+    } catch (_) {}
+
+    window.close();
+
+    setTimeout(() => {
+      if (!window.closed && returnUrl) {
+        location.href = returnUrl;
+      }
+    }, 150);
+  });
+
+  closeBar.appendChild(closeButton);
+  lesson.appendChild(closeBar);
 })();

@@ -239,8 +239,14 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   document.querySelectorAll('.skill-link').forEach(link=>{
     link.addEventListener('click',()=>{
+      try{
+        localStorage.setItem('dcg-skill-return', location.href);
+      }catch(_){}
       const step=link.closest('.episode-step');
-      reportEvent('adventure_skill_open',{scene_number:step?steps.indexOf(step)+1:null,skill_path:new URL(link.href,location.href).pathname});
+      reportEvent('adventure_skill_open',{
+        scene_number:step?steps.indexOf(step)+1:null,
+        skill_path:new URL(link.href,location.href).pathname
+      });
     });
   });
 
