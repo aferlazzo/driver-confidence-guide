@@ -216,14 +216,12 @@ document.addEventListener('DOMContentLoaded',()=>{
         completedSteps.add(steps.indexOf(step));
         updateScore();
         saveState();
-      }else{
-        button.disabled=true;
-
+            }else{
         outcomes.forEach(result=>{
-          if(result!==outcome) result.hidden=true;
+          result.hidden = result !== outcome;
         });
 
-        if(!outcome.querySelector('.retry-prompt')){
+if(!outcome.querySelector('.retry-prompt')){
           const prompt=document.createElement('p');
           prompt.className='retry-prompt';
           prompt.textContent='That detour ends here. Pick another choice and keep the story moving.';

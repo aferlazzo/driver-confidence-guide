@@ -86,7 +86,15 @@
     });
   };
 
-  addAdventureSceneNavigation();
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      addAdventureSceneNavigation,
+      { once: true }
+    );
+  } else {
+    addAdventureSceneNavigation();
+  }
 
   const nav = document.querySelector(".top-nav");
   if (!nav) return;
