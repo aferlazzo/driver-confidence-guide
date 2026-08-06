@@ -6,10 +6,8 @@
 <title>Adventure 1: Borrow Mom's Car | Driver Confidence Guide</title>
 <link rel="stylesheet" href="../../style.css?v=20260804-glossary">
 <link rel="stylesheet" href="../adventure-v2.css?v=20260802-flowfix">
-<script defer src="../../nav-state.js?v=20260804-audit">
-</script>
-<script defer src="../adventure-v2.js?v=20260805-persistence">
-</script>
+<script defer src="../../nav-state.js?v=20260804-audit"></script>
+<script defer src="../adventure-v2.js?v=20260805-persistence"></script>
 </head>
 <body>
 <nav class="top-nav">
@@ -22,176 +20,281 @@
 </nav>
 <main class="adventure-v2">
 <header class="adventure-banner">
-<p class="adventure-label">Adventure 1 · Enhanced Edition</p>
+<p class="adventure-label">Adventure 1 · Mental Rehearsal</p>
 <h1>Borrow Mom's Car</h1>
-<p>Alex needs wheels for an afternoon with Tyler. Mom supplies the keys, three instructions, and the unnerving confidence of someone lending out a machine she still owns.</p>
+<p>You have the keys. Tyler is coming along. Your job is simple: return the car, the passengers, and Mom's trust in good condition.</p>
+<p><strong>Practice your decisions here, before they matter out there.</strong></p>
 </header>
 <div class="adventure-status" aria-live="polite">
 <div>
 <strong class="scene-status">Scene 1 of 5</strong>
-<div class="progress-track">
-<div class="progress-fill">
-</div>
-</div>
+<div class="progress-track"><div class="progress-fill"></div></div>
 </div>
 <div class="score">Confidence points: <span class="score-value">0</span>/5</div>
 </div>
 
 <section class="episode-step is-active">
 <p class="scene-kicker">Scene 1 · The handoff</p>
-<h2>Keys, conditions, and one unfamiliar dashboard</h2>
+<h2>You have the keys</h2>
 <div class="story">
-<p>Mom places the keys on the counter as though beginning a hostage negotiation.</p>
-<p class="dialogue">“Bring it back with gas. No drive-through car wash. And the radio stays below ‘earthquake.’” <span class="speaker">— Mom</span>
-</p>
-<p>Outside, Tyler is already taking selfies beside the car.</p>
-<p class="dialogue">“It has four wheels and a steering wheel. We have mastered the concept.” <span class="speaker">— Tyler</span>
-</p>
-<p>Alex sits down and discovers a push-button start, an electronic parking brake, unfamiliar headlights, and enough steering-wheel buttons to launch a modest satellite.</p>
+<p>Mom hands you the keys.</p>
+<p class="dialogue">“Bring it back with gas. No drive-through car wash. And keep the radio below earthquake.” <span class="speaker">— Mom</span></p>
+<p>Tyler is already waiting beside the car.</p>
+<p class="dialogue">“It has four wheels and a steering wheel. We are fully qualified.” <span class="speaker">— Tyler</span></p>
+<p>You sit down.</p>
+<p>The start button is unfamiliar.</p>
+<p>The parking brake is electronic.</p>
+<p>The mirrors and seat are set for someone else.</p>
 </div>
-<h3 class="decision-question">What should Alex do before moving?</h3>
+<h3 class="decision-question">What would you do before moving?</h3>
 <div class="choices">
-<button class="choice" data-result="a1s1-good" data-correct="true">Take two minutes to locate the main controls, adjust the seat and mirrors, and ask Mom about anything unfamiliar.</button>
-<button class="choice" data-result="a1s1-risky" data-correct="false">Start driving. Every control will eventually reveal itself, possibly during an emergency.</button>
+<button class="choice" data-result="a1s1-seat" data-correct="false">Adjust the seat and mirrors, then leave. You can learn the other controls as you go.</button>
+<button class="choice" data-result="a1s1-phone" data-correct="false">Connect your phone first so navigation and music are ready.</button>
+<button class="choice" data-result="a1s1-good" data-correct="true">Take two minutes to adjust the seat and mirrors, locate the main controls, and ask about anything unfamiliar.</button>
+<button class="choice" data-result="a1s1-go" data-correct="false">Release the parking brake and start driving. The car will warn you if something is wrong.</button>
 </div>
 <div id="a1s1-good" class="outcome good" hidden>
-<h3>Good call</h3>
-<p>Alex finds the lights, wipers, parking brake, fuel-door release, and owner’s manual. Mom points out that the shifter returns to center after every selection—something Tyler’s theory did not cover.</p>
-<a class="skill-link" href="../../skill-02-find-owners-manual/skill-02-find-owners-manual.html" target="_blank" rel="noopener">Open Skill: Find the Owner’s Manual</a><span class="skill-link-note">Opens in a new tab; your Adventure stays here.</span>
+<h3>You remove the guesswork</h3>
+<p>You adjust the seat and mirrors.</p>
+<p>You locate the lights, wipers, parking brake, fuel-door release, and owner's manual.</p>
+<p>Mom shows you that the shifter returns to the center after each selection.</p>
+<p>Tyler's four-wheel qualification did not cover that.</p>
+<a class="skill-link" href="../../skill-02-find-owners-manual/skill-02-find-owners-manual.html" target="_blank" rel="noopener">Open Skill: Find the Owner's Manual</a><span class="skill-link-note">Opens in a new tab; your Adventure stays here.</span>
 <button class="continue-button">Pull out of the driveway</button>
 </div>
-<div id="a1s1-risky" class="outcome risky" hidden>
-<h3>The car votes no</h3>
-<p>Alex backs six feet with a mirror aimed at the headliner and the parking brake still engaged. The dashboard chimes like a game show where every answer is wrong. They stop and do the two-minute check after all.</p>
-<button class="continue-button">Try the driveway again</button>
+<div id="a1s1-seat" class="outcome risky" hidden>
+<h3>One problem remains hidden</h3>
+<p>You can see clearly and reach the pedals.</p>
+<p>At the end of the driveway, you reach for the parking brake and hesitate.</p>
+<p>The switch does not work the way you expected.</p>
+<p>You stop and learn the unfamiliar controls before entering traffic.</p>
+</div>
+<div id="a1s1-phone" class="outcome risky" hidden>
+<h3>The phone can wait</h3>
+<p>Your route is ready.</p>
+<p>Your mirrors are not.</p>
+<p>When you look behind you, the rearview mirror shows the ceiling.</p>
+<p>You put the phone down and complete the pre-drive check.</p>
+</div>
+<div id="a1s1-go" class="outcome risky" hidden>
+<h3>The car objects</h3>
+<p>You start backing up.</p>
+<p>The rearview mirror is still pointed at the ceiling.</p>
+<p>The parking brake is still on.</p>
+<p>The dashboard begins chiming.</p>
+<p>Tyler looks over. “I think the car wants a second opinion.”</p>
+<p>You stop and do the two-minute check.</p>
 </div>
 </section>
 
 <section class="episode-step">
 <p class="scene-kicker">Scene 2 · The phone problem</p>
-<h2>Tyler wants music. Alex needs directions.</h2>
+<h2>The next turn is approaching</h2>
 <div class="story">
-<p>They reach the end of the block. Tyler announces that the car’s audio system is “emotionally unavailable” because it has not paired with his phone.</p>
-<p class="dialogue">“Keep driving. I’ll press things until technology respects me.” <span class="speaker">— Tyler</span>
-</p>
-<p>The map is not connected, the next turn is approaching, and the touchscreen has six menus named with words no normal person uses in conversation.</p>
+<p>You reach the end of the block.</p>
+<p>The phone is not connected.</p>
+<p>The map is not on the dashboard.</p>
+<p>Tyler begins opening menus on the touchscreen.</p>
+<p class="dialogue">“Keep driving. I will press things until technology respects me.” <span class="speaker">— Tyler</span></p>
+<p>Your next turn is less than a minute away.</p>
 </div>
-<h3 class="decision-question">What should Alex do?</h3>
+<h3 class="decision-question">What would you do next?</h3>
 <div class="choices">
 <button class="choice" data-result="a1s2-good" data-correct="true">Pull into a safe parking area, put the car in Park, and connect the phone before continuing.</button>
-<button class="choice" data-result="a1s2-risky" data-correct="false">Let Tyler operate the screen while Alex watches both the road and his increasingly creative menu choices.</button>
+<button class="choice" data-result="a1s2-tyler" data-correct="false">Keep driving while Tyler handles the touchscreen and calls out directions.</button>
+<button class="choice" data-result="a1s2-audio" data-correct="false">Use Bluetooth audio only and let Tyler read directions from the phone.</button>
+<button class="choice" data-result="a1s2-memory" data-correct="false">Continue from memory. You know the general direction.</button>
 </div>
 <div id="a1s2-good" class="outcome good" hidden>
-<h3>Park first, poke second</h3>
-<p>In a grocery-store lot, Alex connects the phone, confirms the route, and starts a playlist. Tyler objects to the playlist but survives this grave injustice.</p>
+<h3>You stop dividing your attention</h3>
+<p>You pull into a grocery-store parking lot.</p>
+<p>You put the car in Park.</p>
+<p>You connect the phone and confirm the route.</p>
+<p>Tyler objects to the playlist but survives.</p>
 <a class="skill-link" href="../../skill-14-connect-android-auto/skill-14-connect-android-auto.html" target="_blank" rel="noopener">Open Skill: Connect Android Auto</a><a class="skill-link" href="../../skill-15-connect-apple-carplay/skill-15-connect-apple-carplay.html" target="_blank" rel="noopener">Open Skill: Connect Apple CarPlay</a><span class="skill-link-note">Opens in a new tab; your Adventure stays here.</span>
 <button class="continue-button">Continue toward the gas station</button>
 </div>
-<div id="a1s2-risky" class="outcome risky" hidden>
-<h3>Too many copilots</h3>
-<p>Tyler changes the language to French and Alex misses the turn. They pull over, restore English, and add seven minutes to the trip. The car now knows the word for “settings” in two languages.</p>
-<button class="continue-button">Regroup and continue</button>
+<div id="a1s2-tyler" class="outcome risky" hidden>
+<h3>Two people become distracted</h3>
+<p>Tyler changes the screen language.</p>
+<p>You glance over to help.</p>
+<p>You miss the turn.</p>
+<p>You pull into a parking lot and finish the setup while stopped.</p>
+</div>
+<div id="a1s2-audio" class="outcome risky" hidden>
+<h3>The directions compete with the road</h3>
+<p>Tyler looks down at the phone.</p>
+<p>He calls out the turn late.</p>
+<p>You brake harder than necessary and continue past it.</p>
+<p>You park before trying again.</p>
+</div>
+<div id="a1s2-memory" class="outcome risky" hidden>
+<h3>General direction is not a route</h3>
+<p>You continue for several blocks.</p>
+<p>The street names stop looking familiar.</p>
+<p>You pull over before the guess becomes a longer detour.</p>
 </div>
 </section>
 
 <section class="episode-step">
 <p class="scene-kicker">Scene 3 · The fuel stop</p>
-<h2>Which side? Which fuel? Whose dignity?</h2>
+<h2>The gauge is low</h2>
 <div class="story">
-<p>The fuel gauge is low, exactly as Mom predicted. Alex approaches a crowded station while Tyler provides commentary without useful information.</p>
-<p class="dialogue">“The hose probably stretches to either side. Probably is a powerful word.” <span class="speaker">— Tyler</span>
-</p>
-<p>Alex remembers the tiny arrow beside the fuel-pump icon but does not remember which gasoline grade Mom’s car uses.</p>
+<p>Mom was right about the fuel.</p>
+<p>The station is crowded.</p>
+<p>You see a small arrow beside the fuel-pump symbol.</p>
+<p>You do not remember which fuel grade the car uses.</p>
+<p class="dialogue">“The hose probably reaches either side.” <span class="speaker">— Tyler</span></p>
 </div>
-<h3 class="decision-question">What is the smart sequence?</h3>
+<h3 class="decision-question">What would you do at the station?</h3>
 <div class="choices">
-<button class="choice" data-result="a1s3-good" data-correct="true">Use the dashboard arrow to position the car, shut off the engine, and check the fuel-door label or owner’s manual before selecting fuel.</button>
-<button class="choice" data-result="a1s3-risky" data-correct="false">Choose the cheapest button quickly. Gasoline is gasoline, and the people waiting look judgmental.</button>
+<button class="choice" data-result="a1s3-grade" data-correct="false">Choose regular unleaded. It is the usual choice for most cars.</button>
+<button class="choice" data-result="a1s3-arrow" data-correct="false">Use the dashboard arrow to position the car, then choose the middle fuel grade to be safe.</button>
+<button class="choice" data-result="a1s3-good" data-correct="true">Use the dashboard arrow, shut off the engine, and check the fuel-door label or owner's manual before choosing fuel.</button>
+<button class="choice" data-result="a1s3-call" data-correct="false">Call Mom from the pump and ask which grade to use.</button>
 </div>
 <div id="a1s3-good" class="outcome good" hidden>
-<h3>No guessing required</h3>
-<p>The arrow puts the fuel door beside the pump. The label says regular unleaded. Alex fills the tank without dragging a hose across the trunk like a giant rubber scarf.</p>
+<h3>You verify instead of guessing</h3>
+<p>The arrow puts the fuel door beside the pump.</p>
+<p>The label says regular unleaded.</p>
+<p>You fill the tank without stretching the hose across the car.</p>
 <a class="skill-link" href="../../skill-11-pumping-gas/skill-11-pumping-gas.html" target="_blank" rel="noopener">Open Skill: Pump Gas Correctly</a><span class="skill-link-note">Opens in a new tab; your Adventure stays here.</span>
 <button class="continue-button">Leave the station</button>
 </div>
-<div id="a1s3-risky" class="outcome risky" hidden>
-<h3>Pressure is not a fuel grade</h3>
-<p>Alex stops before pressing the button and reads the label. The waiting driver is not judging anyone; he is eating a breakfast burrito with astonishing commitment.</p>
-<button class="continue-button">Fuel correctly and continue</button>
+<div id="a1s3-grade" class="outcome risky" hidden>
+<h3>Your guess may be right</h3>
+<p>Your hand stops above the regular button.</p>
+<p>You realize “usually” is not the same as “this car.”</p>
+<p>You check the label before continuing.</p>
+</div>
+<div id="a1s3-arrow" class="outcome risky" hidden>
+<h3>Middle grade is not a safety setting</h3>
+<p>You position the car correctly.</p>
+<p>The pump offers three grades.</p>
+<p>Nothing on the pump tells you what this car requires.</p>
+<p>You check the fuel-door label.</p>
+</div>
+<div id="a1s3-call" class="outcome risky" hidden>
+<h3>Calling works, but the answer is already nearby</h3>
+<p>Mom does not answer.</p>
+<p>A driver is waiting behind you.</p>
+<p>You notice the fuel label inside the open door and use it.</p>
 </div>
 </section>
 
 <section class="episode-step">
 <p class="scene-kicker">Scene 4 · The warning light</p>
-<h2>A yellow horseshoe appears</h2>
+<h2>A yellow symbol appears</h2>
 <div class="story">
-<p>Ten minutes later, a yellow tire-pressure symbol lights up. The car feels normal. Tyler leans toward the dashboard.</p>
-<p class="dialogue">“Maybe it means the car found a tiny horseshoe. Lucky us.” <span class="speaker">— Tyler</span>
-</p>
-<p>Alex knows a warning light is information, not decoration, but they are only fifteen minutes from their destination.</p>
+<p>Ten minutes later, a yellow tire-pressure symbol lights up.</p>
+<p>The car feels normal.</p>
+<p>You are fifteen minutes from home.</p>
+<p class="dialogue">“Maybe the car found a tiny horseshoe.” <span class="speaker">— Tyler</span></p>
 </div>
-<h3 class="decision-question">What should Alex do?</h3>
+<h3 class="decision-question">What would you do?</h3>
 <div class="choices">
-<button class="choice" data-result="a1s4-good" data-correct="true">Pull over safely, inspect all four tires, and check the owner’s manual before deciding whether to continue.</button>
-<button class="choice" data-result="a1s4-risky" data-correct="false">Ignore it unless the steering wheel starts arguing.</button>
+<button class="choice" data-result="a1s4-good" data-correct="true">Pull over safely, inspect all four tires, and check the owner's manual before deciding whether to continue.</button>
+<button class="choice" data-result="a1s4-home" data-correct="false">Drive home carefully because the car still feels normal.</button>
+<button class="choice" data-result="a1s4-station" data-correct="false">Return to the gas station and add air to the tire that looks lowest.</button>
+<button class="choice" data-result="a1s4-reset" data-correct="false">Look for a reset option on the dashboard. The warning may be old.</button>
 </div>
 <div id="a1s4-good" class="outcome good" hidden>
-<h3>Investigate before escalating</h3>
-<p>No tire looks flat. The manual confirms the symbol, and the gas station has an air pump. One tire is several <a class="term-link" href="../../skills.html#glossary-psi" target="_blank" rel="noopener" aria-label="PSI definition (opens in a new tab)">PSI</a> low. Alex inflates it to the door-jamb specification and makes a note to tell Mom.</p>
+<h3>You investigate before deciding</h3>
+<p>You pull over in a safe place.</p>
+<p>No tire looks flat.</p>
+<p>The owner's manual confirms the symbol.</p>
+<p>At the gas-station air pump, one tire measures several <a class="term-link" href="../../skills.html#glossary-psi" target="_blank" rel="noopener" aria-label="PSI definition (opens in a new tab)">PSI</a> low.</p>
+<p>You inflate it to the door-jamb specification and plan to tell Mom.</p>
 <a class="skill-link" href="../../skill-09-checking-air-pressure/skill-09-checking-air-pressure.html" target="_blank" rel="noopener">Open Skill: Check Tire Pressure</a><span class="skill-link-note">Opens in a new tab; your Adventure stays here.</span>
 <button class="continue-button">Head home</button>
 </div>
-<div id="a1s4-risky" class="outcome risky" hidden>
-<h3>The light does not get bored</h3>
-<p>After two miles, Alex’s imagination supplies seventeen possible tire failures. They pull over anyway, find the low tire, and handle it calmly. Worry was optional; checking was useful.</p>
-<button class="continue-button">Head home</button>
+<div id="a1s4-home" class="outcome risky" hidden>
+<h3>The warning stays with you</h3>
+<p>You continue driving.</p>
+<p>Every small vibration now feels important.</p>
+<p>After two miles, you pull over and inspect the tires.</p>
+<p>You decide the check was worth doing before the worry grew.</p>
+</div>
+<div id="a1s4-station" class="outcome risky" hidden>
+<h3>Appearance does not reveal pressure</h3>
+<p>All four tires look nearly the same.</p>
+<p>You would be guessing which one needs air and how much.</p>
+<p>You check each tire with a gauge and use the door-jamb specification.</p>
+</div>
+<div id="a1s4-reset" class="outcome risky" hidden>
+<h3>Resetting does not fix the cause</h3>
+<p>The menu offers a tire-pressure reset.</p>
+<p>You still do not know whether a tire is low.</p>
+<p>You inspect and measure the tires before touching the reset.</p>
 </div>
 </section>
 
 <section class="episode-step">
 <p class="scene-kicker">Scene 5 · The return</p>
-<h2>Bring it back better than you found it</h2>
+<h2>You hand back the keys</h2>
 <div class="story">
-<p>They return on time, with a full tank and a functioning playlist. There is one final question: what should Alex tell Mom?</p>
-<p class="dialogue">“We could just hand over the keys and let the dashboard tell the story.” <span class="speaker">— Tyler</span>
-</p>
+<p>You return on time.</p>
+<p>The tank is full.</p>
+<p>The tire-pressure warning is no longer glowing.</p>
+<p>Mom reaches for the keys.</p>
+<p class="dialogue">“We could let the dashboard explain everything.” <span class="speaker">— Tyler</span></p>
 </div>
-<h3 class="decision-question">How should Alex finish the handoff?</h3>
+<h3 class="decision-question">What would you tell Mom?</h3>
 <div class="choices">
-<button class="choice" data-result="a1s5-good" data-correct="true">Explain the tire-pressure warning, what was checked, how much air was added, and where the receipt is.</button>
-<button class="choice" data-result="a1s5-risky" data-correct="false">Say “Everything was fine,” then walk away at a speed that discourages follow-up questions.</button>
+<button class="choice" data-result="a1s5-good" data-correct="true">Explain the warning, what you checked, how much air you added, and that the tire may need inspection.</button>
+<button class="choice" data-result="a1s5-brief" data-correct="false">Say the tire light came on but everything seems fine now.</button>
+<button class="choice" data-result="a1s5-receipt" data-correct="false">Hand over the fuel receipt and mention the tire only if she asks.</button>
+<button class="choice" data-result="a1s5-none" data-correct="false">Say the trip went fine. You solved the problem, so there is nothing else to report.</button>
 </div>
 <div id="a1s5-good" class="outcome good" hidden>
-<h3>Trust returned with the keys</h3>
-<p>Mom appreciates the details and schedules a tire inspection. She also notices the tank is full. Alex has not merely borrowed a car; Alex has demonstrated that borrowing includes responsibility.</p>
+<h3>You return the information with the keys</h3>
+<p>You explain what happened.</p>
+<p>Mom appreciates the details.</p>
+<p>She schedules a tire inspection.</p>
+<p>The full tank matters.</p>
+<p>The honest handoff matters more.</p>
 <a class="skill-link" href="../../skill-20-monthly-checks/skill-20-monthly-checks.html" target="_blank" rel="noopener">Open Skill: Build a Check Routine</a><span class="skill-link-note">Opens in a new tab; your Adventure stays here.</span>
-<button class="continue-button">See how you did</button>
+<button class="continue-button">Finish the rehearsal</button>
 </div>
-<div id="a1s5-risky" class="outcome risky" hidden>
-<h3>The dashboard is a snitch</h3>
-<p>Mom sees the warning history and asks what happened. Alex explains eventually, but the delayed truth makes a small problem feel larger. Clear handoffs prevent that.</p>
-<button class="continue-button">See how you did</button>
+<div id="a1s5-brief" class="outcome risky" hidden>
+<h3>The important detail is missing</h3>
+<p>Mom asks which tire was low and how low it was.</p>
+<p>You realize “fine now” does not tell her whether the problem may return.</p>
+<p>You give her the full explanation.</p>
+</div>
+<div id="a1s5-receipt" class="outcome risky" hidden>
+<h3>The receipt tells only half the story</h3>
+<p>Mom sees the full tank.</p>
+<p>Later, she notices the warning history on the dashboard.</p>
+<p>The delayed explanation makes a small problem feel larger.</p>
+</div>
+<div id="a1s5-none" class="outcome risky" hidden>
+<h3>Solving it once may not solve it</h3>
+<p>The tire loses pressure again the next morning.</p>
+<p>Mom did not know to watch it.</p>
+<p>You explain what happened and why she may need an inspection.</p>
 </div>
 </section>
 
 <section class="episode-step adventure-finish">
-<p class="scene-kicker">Adventure complete</p>
-<h2>The car came home. So did everyone else.</h2>
+<p class="scene-kicker">Mental rehearsal complete</p>
+<h2>You brought back more than the car</h2>
 <p class="final-score">You earned <span class="final-score-value">0</span> of 5 confidence points.</p>
+<p>You practiced how to slow down, gather information, and make a better decision in an unfamiliar car.</p>
 <ul class="takeaway-list">
-<li>Learn unfamiliar controls before the car moves.</li>
-<li>Park before using menus or connecting a phone.</li>
-<li>Confirm fuel type instead of guessing.</li>
-<li>Treat warning lights as useful information.</li>
-<li>Return borrowed property with a clear handoff.</li>
+<li>Get familiar with an unfamiliar car before it moves.</li>
+<li>Park before working with screens or phone connections.</li>
+<li>Verify fuel requirements instead of relying on a guess.</li>
+<li>Investigate warning lights before deciding what to do next.</li>
+<li>Return borrowed property with a clear and honest handoff.</li>
 </ul>
-<button class="restart-button">Play again</button>
+<button class="restart-button">Rehearse it again</button>
 <div class="adventure-links">
-<a class="nav-button primary" href="../zoo-day/index.html">Next: Go to the Zoo</a>
+<a class="nav-button primary" href="../zoo-day/index.html">Next Adventure: Go to the Zoo</a>
 <a class="nav-button" href="../../skills.html">Browse Skills</a>
 </div>
 </section>
 </main>
-<footer>© 2026 Tony Ferlazzo · Driver Confidence Guide · Version 1.2.0</footer>
+<footer>© 2026 Tony Ferlazzo · Driver Confidence Guide · Version 1.5.0</footer>
 </body>
 </html>
