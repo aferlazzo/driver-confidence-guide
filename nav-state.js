@@ -15,6 +15,79 @@
     document.head.appendChild(analyticsScript);
   }
 
+  const addAdventureSceneNavigation = () => {
+    const steps = [...document.querySelectorAll(".episode-step")];
+    if (steps.length < 2) return;
+
+    const decisionSteps = steps.slice(0, -1);
+    const status = document.querySelector(".scene-status");
+    const storageKey = `dcg-adventure:${location.pathname}`;
+
+    const showScene = (index) => {
+      const safeIndex = Math.max(0, Math.min(index, decisionSteps.length - 1));
+      steps.forEach((step, stepIndex) => {
+        step.classList.toggle("is-active", stepIndex === safeIndex);
+      });
+      if (status) status.textContent = `Scene ${safeIndex + 1} of ${decisionSteps.length}`;
+
+      try {
+        const saved = JSON.parse(localStorage.getItem(storageKey)) || {};
+        saved.current = safeIndex;
+        saved.completed = Array.isArray(saved.completed) ? saved.completed : [];
+        localStorage.setItem(storageKey, JSON.stringify(saved));
+      } catch (_) {}
+
+      const adventureStatus = document.querySelector(".adventure-status");
+      if (adventureStatus) {
+        adventureStatus.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
+    const style = document.createElement("style");
+    style.textContent = `
+      .scene-navigation{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 4px;padding-top:16px;border-top:1px solid #d6e0e4}
+      .scene-nav-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border:2px solid #1f6f8b;border-radius:10px;background:#fff;color:#164f65;font:inherit;font-weight:800;text-decoration:none;cursor:pointer}
+      .scene-nav-button:hover,.scene-nav-button:focus-visible{background:#eaf7fb}
+      .scene-nav-button:disabled{border-color:#c4d0d5;background:#f1f4f5;color:#7a878d;cursor:not-allowed}
+      .scene-nav-exit{margin-left:auto;border-color:#6d7880;color:#465159}
+      @media(max-width:760px){.scene-navigation{display:grid}.scene-nav-button{width:100%}.scene-nav-exit{margin-left:0}}
+    `;
+    document.head.appendChild(style);
+
+    decisionSteps.forEach((step, index) => {
+      const choices = step.querySelector(".choices");
+      if (!choices || step.querySelector(".scene-navigation")) return;
+
+      const controls = document.createElement("div");
+      controls.className = "scene-navigation";
+      controls.setAttribute("aria-label", "Adventure scene navigation");
+
+      const first = document.createElement("button");
+      first.type = "button";
+      first.className = "scene-nav-button";
+      first.textContent = "Back to first scene";
+      first.disabled = index === 0;
+      first.addEventListener("click", () => showScene(0));
+
+      const previous = document.createElement("button");
+      previous.type = "button";
+      previous.className = "scene-nav-button";
+      previous.textContent = "Previous scene";
+      previous.disabled = index === 0;
+      previous.addEventListener("click", () => showScene(index - 1));
+
+      const exit = document.createElement("a");
+      exit.className = "scene-nav-button scene-nav-exit";
+      exit.href = "../../adventures.html";
+      exit.textContent = "End adventure and choose another";
+
+      controls.append(first, previous, exit);
+      choices.insertAdjacentElement("afterend", controls);
+    });
+  };
+
+  addAdventureSceneNavigation();
+
   const nav = document.querySelector(".top-nav");
   if (!nav) return;
 
