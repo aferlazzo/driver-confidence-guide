@@ -196,7 +196,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     outcome.setAttribute('aria-live','polite');
     outcome.tabIndex=-1;
     requestAnimationFrame(()=>{
-      outcome.scrollIntoView({behavior:'smooth',block:'start'});
+      const top=Math.max(0,window.scrollY+outcome.getBoundingClientRect().top-12);
+      window.scrollTo({top,behavior:'auto'});
       outcome.focus({preventScroll:true});
     });
   }
