@@ -68,6 +68,65 @@
       true
     );
 
+    const finish = document.querySelector(".adventure-finish");
+    if (finish && !finish.querySelector(".share-adventure-button")) {
+      const shareButton = document.createElement("button");
+      shareButton.type = "button";
+      shareButton.className = "nav-button share-adventure-button";
+      shareButton.textContent = "Share this adventure";
+
+      shareButton.addEventListener("click", async () => {
+        const shareUrl = new URL(window.location.href);
+        shareUrl.hash = "";
+        shareUrl.search = "";
+        const shareText = "Try this driving adventure. See what you would do.";
+
+        try {
+          if (navigator.share) {
+            await navigator.share({
+              title: document.title,
+              text: shareText,
+              url: shareUrl.href,
+            });
+            if (typeof window.gtag === "function") {
+              window.gtag("event", "adventure_share", {
+                adventure_path: location.pathname,
+                share_method: "native",
+              });
+            }
+            return;
+          }
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(`${shareText} ${shareUrl.href}`);
+            const original = shareButton.textContent;
+            shareButton.textContent = "Link copied!";
+            setTimeout(() => {
+              shareButton.textContent = original;
+            }, 1800);
+            if (typeof window.gtag === "function") {
+              window.gtag("event", "adventure_share", {
+                adventure_path: location.pathname,
+                share_method: "clipboard",
+              });
+            }
+            return;
+          }
+        } catch (error) {
+          if (error && error.name === "AbortError") return;
+        }
+
+        window.prompt("Copy this adventure link:", shareUrl.href);
+      });
+
+      const links = finish.querySelector(".adventure-links");
+      if (links) {
+        links.prepend(shareButton);
+      } else {
+        finish.appendChild(shareButton);
+      }
+    }
+
     const style = document.createElement("style");
     style.textContent = `
       .scene-navigation{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 4px;padding-top:16px;border-top:1px solid #d6e0e4}
@@ -75,7 +134,8 @@
       .scene-nav-button:hover,.scene-nav-button:focus-visible{background:#eaf7fb}
       .scene-nav-button:disabled{border-color:#c4d0d5;background:#f1f4f5;color:#7a878d;cursor:not-allowed}
       .scene-nav-exit{margin-left:auto;border-color:#6d7880;color:#465159}
-      @media(max-width:760px){.scene-navigation{display:grid}.scene-nav-button{width:100%}.scene-nav-exit{margin-left:0}}
+      .share-adventure-button{font:inherit;cursor:pointer}
+      @media(max-width:760px){.scene-navigation{display:grid}.scene-nav-button{width:100%}.scene-nav-exit{margin-left:0}.share-adventure-button{width:100%}}
     `;
     document.head.appendChild(style);
 
