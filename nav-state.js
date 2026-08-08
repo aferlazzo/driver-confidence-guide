@@ -22,6 +22,60 @@
     });
   }
 
+  const makeShareButton = (className = "nav-button share-adventure-button") => {
+    const shareButton = document.createElement("button");
+    shareButton.type = "button";
+    shareButton.className = className;
+    shareButton.textContent = "Share this adventure";
+
+    shareButton.addEventListener("click", async () => {
+      const shareUrl = new URL(window.location.href);
+      shareUrl.hash = "";
+      shareUrl.search = "";
+      shareUrl.searchParams.set("shared", "1");
+      const shareText = "Try this driving adventure. See what you would do.";
+
+      try {
+        if (navigator.share) {
+          await navigator.share({
+            title: document.title,
+            text: shareText,
+            url: shareUrl.href,
+          });
+          if (typeof window.gtag === "function") {
+            window.gtag("event", "adventure_share", {
+              adventure_path: location.pathname,
+              share_method: "native",
+            });
+          }
+          return;
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(`${shareText} ${shareUrl.href}`);
+          const original = shareButton.textContent;
+          shareButton.textContent = "Link copied!";
+          setTimeout(() => {
+            shareButton.textContent = original;
+          }, 1800);
+          if (typeof window.gtag === "function") {
+            window.gtag("event", "adventure_share", {
+              adventure_path: location.pathname,
+              share_method: "clipboard",
+            });
+          }
+          return;
+        }
+      } catch (error) {
+        if (error && error.name === "AbortError") return;
+      }
+
+      window.prompt("Copy this adventure link:", shareUrl.href);
+    });
+
+    return shareButton;
+  };
+
   const addAdventureSceneNavigation = () => {
     const steps = [...document.querySelectorAll(".episode-step")];
     if (steps.length < 2) return;
@@ -77,56 +131,7 @@
 
     const finish = document.querySelector(".adventure-finish");
     if (finish && !finish.querySelector(".share-adventure-button")) {
-      const shareButton = document.createElement("button");
-      shareButton.type = "button";
-      shareButton.className = "nav-button share-adventure-button";
-      shareButton.textContent = "Share this adventure";
-
-      shareButton.addEventListener("click", async () => {
-        const shareUrl = new URL(window.location.href);
-        shareUrl.hash = "";
-        shareUrl.search = "";
-        shareUrl.searchParams.set("shared", "1");
-        const shareText = "Try this driving adventure. See what you would do.";
-
-        try {
-          if (navigator.share) {
-            await navigator.share({
-              title: document.title,
-              text: shareText,
-              url: shareUrl.href,
-            });
-            if (typeof window.gtag === "function") {
-              window.gtag("event", "adventure_share", {
-                adventure_path: location.pathname,
-                share_method: "native",
-              });
-            }
-            return;
-          }
-
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            await navigator.clipboard.writeText(`${shareText} ${shareUrl.href}`);
-            const original = shareButton.textContent;
-            shareButton.textContent = "Link copied!";
-            setTimeout(() => {
-              shareButton.textContent = original;
-            }, 1800);
-            if (typeof window.gtag === "function") {
-              window.gtag("event", "adventure_share", {
-                adventure_path: location.pathname,
-                share_method: "clipboard",
-              });
-            }
-            return;
-          }
-        } catch (error) {
-          if (error && error.name === "AbortError") return;
-        }
-
-        window.prompt("Copy this adventure link:", shareUrl.href);
-      });
-
+      const shareButton = makeShareButton();
       const links = finish.querySelector(".adventure-links");
       if (links) {
         links.prepend(shareButton);
@@ -141,6 +146,7 @@
       .scene-nav-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border:2px solid #1f6f8b;border-radius:10px;background:#fff;color:#164f65;font:inherit;font-weight:800;text-decoration:none;cursor:pointer}
       .scene-nav-button:hover,.scene-nav-button:focus-visible{background:#eaf7fb}
       .scene-nav-button:disabled{border-color:#c4d0d5;background:#f1f4f5;color:#7a878d;cursor:not-allowed}
+      .scene-nav-share{border-color:#1f6f8b;color:#164f65}
       .scene-nav-exit{margin-left:auto;border-color:#6d7880;color:#465159}
       .share-adventure-button{font:inherit;cursor:pointer}
       @media(max-width:760px){.scene-navigation{display:grid}.scene-nav-button{width:100%}.scene-nav-exit{margin-left:0}.share-adventure-button{width:100%}}
@@ -169,12 +175,14 @@
       previous.disabled = index === 0;
       previous.addEventListener("click", () => showScene(index - 1));
 
+      const share = makeShareButton("scene-nav-button scene-nav-share share-adventure-button");
+
       const exit = document.createElement("a");
       exit.className = "scene-nav-button scene-nav-exit";
       exit.href = "../../adventures.html";
       exit.textContent = "End adventure and choose another";
 
-      controls.append(first, previous, exit);
+      controls.append(first, previous, share, exit);
       choices.insertAdjacentElement("afterend", controls);
     });
   };
