@@ -195,8 +195,10 @@ document.addEventListener('DOMContentLoaded',()=>{
     outcome.setAttribute('role','status');
     outcome.setAttribute('aria-live','polite');
     outcome.tabIndex=-1;
-    outcome.focus({preventScroll:true});
-    outcome.scrollIntoView({behavior:'smooth',block:'nearest'});
+    requestAnimationFrame(()=>{
+      outcome.scrollIntoView({behavior:'smooth',block:'start'});
+      outcome.focus({preventScroll:true});
+    });
   }
 
   document.querySelectorAll('.choice').forEach(button=>{
@@ -216,12 +218,12 @@ document.addEventListener('DOMContentLoaded',()=>{
         completedSteps.add(steps.indexOf(step));
         updateScore();
         saveState();
-            }else{
+      }else{
         outcomes.forEach(result=>{
           result.hidden = result !== outcome;
         });
 
-if(!outcome.querySelector('.retry-prompt')){
+        if(!outcome.querySelector('.retry-prompt')){
           const prompt=document.createElement('p');
           prompt.className='retry-prompt';
           prompt.textContent='That detour ends here. Pick another choice and keep the story moving.';
