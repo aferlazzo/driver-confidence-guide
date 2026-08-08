@@ -23,6 +23,13 @@
     const status = document.querySelector(".scene-status");
     const storageKey = `dcg-adventure:${location.pathname}`;
 
+    const scrollToSceneStart = (step) => {
+      if (!step) return;
+      requestAnimationFrame(() => {
+        step.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    };
+
     const showScene = (index) => {
       const safeIndex = Math.max(0, Math.min(index, decisionSteps.length - 1));
       steps.forEach((step, stepIndex) => {
@@ -37,11 +44,15 @@
         localStorage.setItem(storageKey, JSON.stringify(saved));
       } catch (_) {}
 
-      const adventureStatus = document.querySelector(".adventure-status");
-      if (adventureStatus) {
-        adventureStatus.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      scrollToSceneStart(steps[safeIndex]);
     };
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".continue-button")) return;
+      requestAnimationFrame(() => {
+        scrollToSceneStart(document.querySelector(".episode-step.is-active"));
+      });
+    });
 
     const style = document.createElement("style");
     style.textContent = `
