@@ -1,0 +1,48 @@
+name: Normalize adventure share cache
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    if: github.event.head_commit.message == 'Add one-time adventure share cache normalization'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Normalize all Season 1 adventure script versions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path('adventures')
+          changed = []
+          pattern = re.compile(r'(src="\.\./\.\./nav-state\.js\?v=)[^"]+("\s*></script>)')
+          replacement = r'\g<1>20260808-adventure-share-final\2'
+
+          for path in sorted(root.glob('*/index.html')):
+              text = path.read_text(encoding='utf-8')
+              updated, count = pattern.subn(replacement, text)
+              if count and updated != text:
+                  path.write_text(updated, encoding='utf-8')
+                  changed.append(str(path))
+
+          print(f'Updated {len(changed)} adventure pages')
+          for path in changed:
+              print(path)
+          PY
+      - name: Commit normalized adventure pages
+        run: |
+          if git diff --quiet; then
+            echo "All adventure pages already normalized."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add adventures/*/index.html
+          git commit -m "Normalize adventure share cache across Season 1"
+          git push
