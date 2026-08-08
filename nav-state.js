@@ -54,6 +54,20 @@
       });
     });
 
+    document.addEventListener(
+      "click",
+      (event) => {
+        const choice = event.target.closest(".choice");
+        if (!choice) return;
+        const step = choice.closest(".episode-step");
+        if (!step) return;
+        step.querySelectorAll(".outcome").forEach((outcome) => {
+          outcome.hidden = true;
+        });
+      },
+      true
+    );
+
     const style = document.createElement("style");
     style.textContent = `
       .scene-navigation{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 4px;padding-top:16px;border-top:1px solid #d6e0e4}
