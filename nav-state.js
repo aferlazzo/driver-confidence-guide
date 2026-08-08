@@ -15,6 +15,13 @@
     document.head.appendChild(analyticsScript);
   }
 
+  const sharedVisit = new URLSearchParams(window.location.search).get("shared") === "1";
+  if (sharedVisit && typeof window.gtag === "function") {
+    window.gtag("event", "adventure_shared_visit", {
+      adventure_path: location.pathname,
+    });
+  }
+
   const addAdventureSceneNavigation = () => {
     const steps = [...document.querySelectorAll(".episode-step")];
     if (steps.length < 2) return;
@@ -79,6 +86,7 @@
         const shareUrl = new URL(window.location.href);
         shareUrl.hash = "";
         shareUrl.search = "";
+        shareUrl.searchParams.set("shared", "1");
         const shareText = "Try this driving adventure. See what you would do.";
 
         try {
